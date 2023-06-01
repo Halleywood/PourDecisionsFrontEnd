@@ -2,17 +2,19 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { SecurityModule } from './security/security.module';
+import { HttpClientModule } from '@angular/common/http'
+import { SecurityComponent } from './security/security.component';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent
+    HomepageComponent, 
+    SecurityComponent
   ],
   imports: [
     BrowserModule, 
-    SecurityModule, 
+    HttpClientModule, 
     AppRoutingModule
   ],
   providers: [],
