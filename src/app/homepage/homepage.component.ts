@@ -11,10 +11,10 @@ export class HomepageComponent implements OnInit{
   constructor(private http: HttpClient){}
 
   ngOnInit(){
-      this.http.get("http://localhost:8080/auth/test", {responseType: 'text' as 'json'})
-      .subscribe((response:any)=>{
-        console.log(response)
-        this.data = response;
-      })
+      // this.http.get("http://localhost:8080/auth/test", {responseType: 'text' as 'json'})
+      // .subscribe((response:any)=>{
+      //   console.log(response)
+      //   this.data = response;
+      // })
   }
 }
