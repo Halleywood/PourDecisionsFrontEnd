@@ -1,0 +1,17 @@
+.registration-container{
+    display:flex; 
+    flex-direction: column;
+    border:2px solid red;
+    height:80vh;
+    align-items: center;
+}
+form{
+    height:30%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border:2px solid black;
+
+
+}
