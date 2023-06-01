@@ -9,16 +9,17 @@ import { JwtClientService } from '../jwt-client.service';
 export class SecurityComponent{
 
   loginRequest: any ={
-    "email": "suresh@ga.com", 
-    "password": "suresh"
+    "email": "email@email.com", 
+    "password": "password"
   }
 
   response: any; 
 
   constructor(private jwtService: JwtClientService){}
 
-  ngOnInit(){
-   this.jwtService.welcome()
+  public loginUser(){
+    this.jwtService.login(this.loginRequest)
+    console.log("****")
   }
 
 }

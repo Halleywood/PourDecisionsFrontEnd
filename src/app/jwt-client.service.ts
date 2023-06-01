@@ -6,12 +6,15 @@ import { Injectable } from '@angular/core';
 })
 export class JwtClientService {
 
+  authHeader = new HttpHeaders();
 
   constructor(private http: HttpClient) { }
 
-  public welcome(){
-    this.http.get("http://localhost:8080/auth/test", {responseType: 'text' as 'json'}).subscribe(response=>{
+  public login(requestBody: any){
+    this.http.post("http://localhost:8080/auth/login", requestBody).subscribe((response)=>{
       console.log(response)
+      const headers = new HttpHeaders().set("Authorization", "Bearer ")
     })
-  }
+ 
+}
 }
