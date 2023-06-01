@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HttpHeaders } from '@angular/common/http'
 import { SecurityComponent } from './security/security.component';
 import { AppRoutingModule } from './app-routing.module';
+import { JwtClientService } from './jwt-client.service';
+import { TokenInterceptorService } from './token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -15,9 +17,9 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule, 
     HttpClientModule, 
-    AppRoutingModule
+    AppRoutingModule 
   ],
-  providers: [],
+  providers: [JwtClientService, TokenInterceptorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

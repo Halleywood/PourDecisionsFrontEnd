@@ -1,20 +1,35 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpEvent, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class JwtClientService {
-
-  authHeader = new HttpHeaders();
+export class JwtClientService{
 
   constructor(private http: HttpClient) { }
 
+  token: string = ''; 
+  header: HttpHeaders = new HttpHeaders();
+
   public login(requestBody: any){
-    this.http.post("http://localhost:8080/auth/login", requestBody).subscribe((response)=>{
-      console.log(response)
-      const headers = new HttpHeaders().set("Authorization", "Bearer ")
+    this.http.post("http://localhost:8080/auth/login", requestBody, {responseType: 'text' as 'json'})
+    .subscribe(response =>{
+      this.token = this.extractJwtToken(response);
+      localStorage.setItem('token', this.token)
     })
- 
-}
-}
+  }
+  public getToken(): any {
+    return localStorage.getItem('token');
+  }
+
+  private extractJwtToken(response: any): any {
+    const jwtRegex = /"message":\s*"([^"]+)"/;
+    const matches = jwtRegex.exec(response);
+    if (matches && matches.length > 1) {
+      return matches[1];
+    }
+    return null;
+  }
+  }
+

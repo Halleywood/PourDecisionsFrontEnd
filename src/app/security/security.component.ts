@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JwtClientService } from '../jwt-client.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-security',
@@ -9,17 +10,26 @@ import { JwtClientService } from '../jwt-client.service';
 export class SecurityComponent{
 
   loginRequest: any ={
-    "email": "email@email.com", 
-    "password": "password"
+    "email": "", 
+    "password": ""
   }
 
   response: any; 
 
-  constructor(private jwtService: JwtClientService){}
+  constructor(private jwtService: JwtClientService, private http: HttpClient){}
 
   public loginUser(){
     this.jwtService.login(this.loginRequest)
-    console.log("****")
+  }
+
+  public test(){
+    this.response = this.http.get("http://localhost:8080/auth/test")
+    console.log(this.response)
+  }
+
+
+  ngOnInit(){
+     
   }
 
 }

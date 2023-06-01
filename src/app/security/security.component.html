@@ -1,3 +1,9 @@
 
 <h1>{{response}}</h1>
 <button (click)="loginUser()">Click</button>
+
+<button (click)="test()">Click to test method</button>
+
+<div *ngIf="response">
+    <p>{{response}}</p>
+</div>
