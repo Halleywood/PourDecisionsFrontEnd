@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-registration',
@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class RegistrationComponent {
 
+
+  registerUser(){
+    console.log("REGISTERED USER")
+  }
 }
