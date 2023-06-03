@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { JwtClientService} from '../services/jwt-client.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,12 +16,13 @@ export class LoginComponent {
 
   response: any; 
 
-  constructor(private jwtService: JwtClientService, private http: HttpClient){}
+  constructor(private jwtService: JwtClientService, private http: HttpClient, private router: Router){}
 
   public loginUser(){
     console.log("you clicked to login!")
     this.jwtService.login(this.loginRequest)
     console.log(this.loginRequest)
+    this.router.navigate(['/home'])
   }
 
   public test(){
