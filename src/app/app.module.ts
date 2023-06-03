@@ -12,7 +12,7 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     AppComponent,
     HomepageComponent, 
-   LoginComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule, 

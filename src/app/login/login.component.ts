@@ -30,6 +30,7 @@ export class LoginComponent {
       this.response = data;
     })
     console.log(this.response)
+ 
   }
 
 
