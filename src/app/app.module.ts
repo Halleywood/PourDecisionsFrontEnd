@@ -1,24 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { HomepageComponent } from './homepage/homepage.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { JwtClientService } from './services/jwt-client.service';
 import { TokenInterceptorService } from './services/token-interceptor.service';
-import { LoginComponent } from './login/login.component';
-import { ProfileComponent } from './profile/profile.component';
+import { PrivateModule } from './private/private.module';
+import { PublicModule } from './public/public.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomepageComponent, 
-    LoginComponent, ProfileComponent
+    AppComponent
+   
   ],
   imports: [
     BrowserModule, 
     HttpClientModule, 
     AppRoutingModule, 
+    PrivateModule, 
+    PublicModule
 
   ],
   providers: [JwtClientService, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}],
