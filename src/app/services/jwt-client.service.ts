@@ -13,14 +13,16 @@ export class JwtClientService{
   header: HttpHeaders = new HttpHeaders();
 
   public login(requestBody: any){
+    console.log("****"+ requestBody)
     this.http.post("http://localhost:8080/auth/login", requestBody, {responseType: 'text' as 'json'})
     .subscribe(response =>{
       this.token = this.extractJwtToken(response);
-      localStorage.setItem('token', this.token)
+      sessionStorage.setItem('token', this.token)
+      console.log("TOKEN IS: "+ this.token)
     })
   }
   public getToken(): any {
-    return localStorage.getItem('token');
+    return sessionStorage.getItem('token');
   }
 
   private extractJwtToken(response: any): any {
