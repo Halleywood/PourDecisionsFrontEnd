@@ -7,12 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { JwtClientService } from './services/jwt-client.service';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent, 
-    LoginComponent
+    LoginComponent, ProfileComponent
   ],
   imports: [
     BrowserModule, 

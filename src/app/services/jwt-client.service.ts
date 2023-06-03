@@ -13,7 +13,6 @@ export class JwtClientService{
   header: HttpHeaders = new HttpHeaders();
 
   public login(requestBody: any){
-    console.log("****"+ requestBody)
     this.http.post("http://localhost:8080/auth/login", requestBody, {responseType: 'text' as 'json'})
     .subscribe(response =>{
       this.token = this.extractJwtToken(response);
@@ -21,7 +20,11 @@ export class JwtClientService{
       console.log("TOKEN IS: "+ this.token)
     })
   }
-  public getToken(): any {
+  public isLoggedIn(): any {
+    return !!sessionStorage.getItem('token');
+  }
+
+  public getToken(): any{
     return sessionStorage.getItem('token');
   }
 
