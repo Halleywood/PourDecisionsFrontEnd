@@ -1,0 +1,14 @@
+.register-container{
+    display:flex; 
+    flex-direction: column;
+    height:50vh; 
+    width:50vw;
+    border: 2px solid green; 
+    justify-content: space-around;
+}
+form{
+    display:flex; 
+    flex-direction: column;
+    justify-content: space-around;
+    height:250px;
+}

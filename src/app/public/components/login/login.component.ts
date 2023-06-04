@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { JwtClientService} from '../../../services/jwt-client.service';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+
   loginRequest: any ={
     "email": "kelsey@ga.com", 
     "password": "kelsey"
@@ -16,28 +17,14 @@ export class LoginComponent {
 
   response: any; 
 
-  constructor(private jwtService: JwtClientService, private http: HttpClient, private router: Router){}
+  constructor(private jwtService: JwtClientService, private router: Router){}
 
-  public loginUser(){
+  public loginUser(): void{
     console.log("you clicked to login!")
     this.jwtService.login(this.loginRequest)
-    console.log(this.loginRequest)
-    this.router.navigate(['/home'])
-  }
-
-  public test(){
-    console.log("You clicked the test method button")
-      this.http.get("http://localhost:8080/auth/test", {responseType: 'text' as 'json'}).subscribe(data => {
-        console.log(data)
-      this.response = data;
-    })
-    console.log(this.response)
- 
-  }
-
-
-  ngOnInit(){
-     
+    if(this.jwtService.isLoggedIn()){
+      this.router.navigate(['/private/home']);
+    }
   }
 
 }

@@ -1,9 +1,12 @@
 <div class="login-container">
 <button (click)="loginUser()">Click to login</button>
 
-<button (click)="test()">Click to test method</button>
+<!-- <button (click)="test()">Click to test method</button> -->
 
 <div *ngIf="response">
     <p>{{response}}</p>
 </div>
+
+<p> Not Registered? Click Here to Register!</p>
+<button><a routerLink="/public/register">Register</a></button>
 </div>

@@ -7,7 +7,7 @@ import { JwtClientService } from './services/jwt-client.service';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { PrivateModule } from './private/private.module';
 import { PublicModule } from './public/public.module';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -19,8 +19,9 @@ import { PublicModule } from './public/public.module';
     HttpClientModule, 
     AppRoutingModule, 
     PrivateModule, 
-    PublicModule
-
+    PublicModule, 
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [JwtClientService, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}],
   bootstrap: [AppComponent]

@@ -1,1 +1,12 @@
-<p>register works!</p>
+<div class="register-container">
+<form [formGroup]="form" (ngSubmit)="registerUser()">
+    <label for="email">Email:</label>
+    <input type="text" id="email" formControlName="email">
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password">
+
+    <button type="submit" [disabled] = "form.invalid">Register</button>
+</form>
+<button type="button"><a routerLink="/public/login">Go Back to Login!</a></button>
+</div>

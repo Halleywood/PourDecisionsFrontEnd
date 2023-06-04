@@ -1,5 +1,7 @@
 import { HttpClient, HttpHandler, HttpEvent, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -7,18 +9,18 @@ import { Injectable } from '@angular/core';
 })
 export class JwtClientService{
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   token: string = ''; 
   header: HttpHeaders = new HttpHeaders();
 
-  public login(requestBody: any){
+  public login(requestBody: any): void{
     this.http.post("http://localhost:8080/auth/login", requestBody, {responseType: 'text' as 'json'})
     .subscribe(response =>{
       this.token = this.extractJwtToken(response);
       sessionStorage.setItem('token', this.token)
-      console.log("TOKEN IS: "+ this.token)
     })
+
   }
   public isLoggedIn(): any {
     return !!sessionStorage.getItem('token');
