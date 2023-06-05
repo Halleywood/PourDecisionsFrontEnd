@@ -2,4 +2,14 @@
    <p>{{currentWine.name}}</p>
    <p>{{currentWine.vintage}}</p>
    <p>{{currentWine.tastingNotes}}</p>
+   <p>POSTS:</p>
+        <div *ngFor="let post of posts">
+            <p>{{post.title}}</p>
+            <p>{{post.tastingNotes}}</p>
+            <p>{{post.userProfile.userName}}</p>
+            <p>{{post.userProfile.id}}</p>
+        </div>
+</div>
+<div>
+    <a routerLink="/private/home">Back</a>
 </div>

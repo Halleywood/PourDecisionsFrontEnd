@@ -2,8 +2,8 @@
 <div *ngIf="wines">
     <div *ngFor="let wine of wines">
         <div class="wine">
-            <a routerLink="/private/wine/{{wine.id}}">SEE WINE</a>
-            <p> NAME: {{wine.name}} </p>
+            <a routerLink="/private/wine/{{wine.id}}">{{wine.name}} </a>
         </div>
     </div>
 </div>
+<div> POSTS: </div>

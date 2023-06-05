@@ -3,7 +3,7 @@ import { WineService } from 'src/app/services/wine.service';
 import { Wine } from 'src/app/wine.model';
 import { ActivatedRoute } from '@angular/router';
 import {Observable} from 'rxjs'
-
+import { Post } from 'src/app/post.model';
 
 @Component({
   selector: 'app-wine-details',
@@ -11,10 +11,10 @@ import {Observable} from 'rxjs'
   styleUrls: ['./wine-details.component.css']
 })
 export class WineDetailsComponent implements OnInit{
-
-  currentWine$: Observable<Wine | null> = new Observable<Wine | null>()
   wineId: any; 
-
+  currentWine$: Observable<Wine | null> = new Observable<Wine | null>()
+  posts: Post[] = [];
+  
   constructor(private wineService: WineService, private route: ActivatedRoute){}
 
   ngOnInit(): void{
@@ -23,5 +23,11 @@ export class WineDetailsComponent implements OnInit{
       this.wineId = parseInt(paramId)
     })
     this.currentWine$ = this.wineService.getAWine(this.wineId)
-  }
+    this.wineService.getPostsForWine(this.wineId).subscribe((posts: Post[]) =>{
+      this.posts = posts})
+      console.log(this.posts)
 }
+
+}
+// this.wineService.getAllWines().subscribe((wines: Wine[]) =>{
+//   this.wines = wines; 
