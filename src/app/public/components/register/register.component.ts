@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms'
-import { UserService } from '../../user.service';
+import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import { JwtClientService } from 'src/app/services/jwt-client.service';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,7 @@ export class RegisterComponent implements OnInit{
   password: new FormControl(null, [Validators.required, Validators.minLength(8)])
  })
   
-  constructor(private service: UserService, private router: Router){}
+  constructor(private service: UserService, private jwtService: JwtClientService, private router: Router){}
 
   ngOnInit(){}
 
@@ -28,7 +29,7 @@ export class RegisterComponent implements OnInit{
   }
 
   registerUser(){
-    this.service.registerUser(this.form.value).subscribe( data=>{
+    this.jwtService.registerUser(this.form.value).subscribe( data=>{
       console.log(data)
       if(data){
         this.router.navigate(['/public/login'])

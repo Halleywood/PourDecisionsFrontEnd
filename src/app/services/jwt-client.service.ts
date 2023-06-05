@@ -1,23 +1,33 @@
-import { HttpClient, HttpHandler, HttpEvent, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Observable } from 'rxjs';
+import {Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators'
 import { Router } from '@angular/router';
-
+import { UserProfile } from '../userprofile.model';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JwtClientService{
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private userService: UserService) { }
 
   token: string = ''; 
   header: HttpHeaders = new HttpHeaders();
+  testData: any;
 
+  
+  registerUser(user: any): Observable<any>{
+    return this.http.post<any>('http://localhost:8080/auth/register', user)
+  }
+
+  //returns an observable so other method can subscribe to it. 
   public login(requestBody: any): Observable<any>{
     return this.http.post("http://localhost:8080/auth/login", requestBody, {responseType: 'text' as 'json'})
+    //pipe = streaming for response, map transforms response. 
     .pipe( map (response =>{
+      this.userService
       return this.validParseResponse(response)
     }))
   }
@@ -35,15 +45,6 @@ export class JwtClientService{
     return sessionStorage.getItem('token');
   }
 
-  private extractJwtToken(response: any): any {
-    const jwtRegex = /"message":\s*"([^"]+)"/;
-    const matches = jwtRegex.exec(response);
-    if (matches && matches.length > 1) {
-      return matches[1];
-    }
-    return null;
-  }
-
   private validParseResponse(response: any): boolean{
     const parsedResponse = JSON.parse(response)
     const jwtString = parsedResponse.message; 
@@ -57,6 +58,5 @@ export class JwtClientService{
       console.log("set token!"+ this.token)
       return true;
     }
-  
   }
 }

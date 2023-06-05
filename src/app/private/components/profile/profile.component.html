@@ -1,0 +1,8 @@
+<div class="profile-container">
+<p>profile works!</p>
+<div *ngIf="currentUser$ | async as currentUser"> 
+    <p>{{currentUser.userName}}</p>
+    <p>{{currentUser.tagline}}</p>
+    <img src="{{currentUser.imgSrc}}">
+</div>
+</div>

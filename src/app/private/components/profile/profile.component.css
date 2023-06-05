@@ -1,0 +1,9 @@
+.profile-container{
+    border:2px solid green;
+}
+img{
+    border-radius:50%;
+    border:2px solid green;
+    max-height:20%;
+    max-width:150px;
+}
