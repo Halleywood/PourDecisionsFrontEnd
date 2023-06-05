@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JwtClientService} from '../../../services/jwt-client.service';
 import { Router } from '@angular/router';
+import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms'
 
 
 @Component({
@@ -10,21 +11,27 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
-  loginRequest: any ={
-    "email": "kelsey@ga.com", 
-    "password": "kelsey"
-  }
-
-  response: any; 
-
+   
+  form: FormGroup = new FormGroup({
+    email: new FormControl(null, [Validators.required, Validators.email]), 
+    password: new FormControl(null, [Validators.required, Validators.minLength(8)])
+   })
+  
+    get email(): FormControl {
+      return this.form.get('email') as FormControl;
+    }
+  
+    get password(): FormControl{
+      return this.form.get('password') as FormControl;
+    }
   constructor(private jwtService: JwtClientService, private router: Router){}
 
   public loginUser(): void{
-    console.log("you clicked to login!")
-    this.jwtService.login(this.loginRequest)
-    if(this.jwtService.isLoggedIn()){
-      this.router.navigate(['/private/home']);
-    }
+    this.jwtService.login(this.form.value).subscribe(()=>{
+      if(this.jwtService.isLoggedIn()){
+        this.router.navigate(['/private/home'])
+      }
+    })
   }
 
 }

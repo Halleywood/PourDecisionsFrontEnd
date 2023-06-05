@@ -1,12 +1,16 @@
 <div class="login-container">
-<button (click)="loginUser()">Click to login</button>
+        <form [formGroup]="form" (ngSubmit)="loginUser()">
+            <label for="email">Email:</label>
+            <input type="text" id="email" formControlName="email">
+        
+            <label for="password">Password:</label>
+            <input type="password" id="password" formControlName="password">
+        
+            <button type="submit" [disabled] = "form.invalid"> Login! </button>
+        </form>
+     
 
-<!-- <button (click)="test()">Click to test method</button> -->
-
-<div *ngIf="response">
-    <p>{{response}}</p>
-</div>
 
 <p> Not Registered? Click Here to Register!</p>
-<button><a routerLink="/public/register">Register</a></button>
+<button type="button"><a routerLink="/public/register">Register</a></button>
 </div>
