@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WineService } from 'src/app/services/wine.service';
 import { Wine } from 'src/app/wine.model';
+import { ActivatedRoute } from '@angular/router';
+import {Observable} from 'rxjs'
 
 
 @Component({
@@ -10,7 +12,16 @@ import { Wine } from 'src/app/wine.model';
 })
 export class WineDetailsComponent implements OnInit{
 
-  constructor(private wineService: WineService){}
+  currentWine$: Observable<Wine | null> = new Observable<Wine | null>()
+  wineId: any; 
 
-  ngOnInit(){}
+  constructor(private wineService: WineService, private route: ActivatedRoute){}
+
+  ngOnInit(): void{
+      this.route.paramMap.subscribe( params => {
+      let paramId: string = params.get('id') || '';
+      this.wineId = parseInt(paramId)
+    })
+    this.currentWine$ = this.wineService.getAWine(this.wineId)
+  }
 }

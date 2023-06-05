@@ -14,7 +14,8 @@ export class WineService {
     return this.http.get<Wine[]>('http://localhost:8080/api/wines')
   }
 
-  public getAWine(id: string): Observable<Wine>{
+  public getAWine(id: number): Observable<Wine>{
+    console.log(id)
     return this.http.get<Wine>(`http://localhost:8080/api/wine/${id}`)
   }
 }

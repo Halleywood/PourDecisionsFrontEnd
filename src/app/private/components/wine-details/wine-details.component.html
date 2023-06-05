@@ -1,1 +1,5 @@
-<p>wine-details works!</p>
+<div *ngIf="currentWine$ | async as currentWine"> 
+   <p>{{currentWine.name}}</p>
+   <p>{{currentWine.vintage}}</p>
+   <p>{{currentWine.tastingNotes}}</p>
+</div>
