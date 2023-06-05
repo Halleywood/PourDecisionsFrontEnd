@@ -9,10 +9,13 @@ import { PrivateModule } from './private/private.module';
 import { PublicModule } from './public/public.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { UserService } from './services/user.service';
+import { WineDetailsComponent } from './private/components/wine-details/wine-details.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WineDetailsComponent
    
   ],
   imports: [

@@ -1,4 +1,6 @@
-p{
-    font-size: 4rem; 
-    border: 2px solid red; 
+.body-container{
+   margin: 0 auto;
+   display: flex;
+   justify-content: center;
+   border: 2px solid black;
 }

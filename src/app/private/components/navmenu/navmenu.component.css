@@ -1,0 +1,15 @@
+.menu-container{
+    border: 2px solid blue;
+    height:100%;
+    width:100%;
+    display: flex; 
+    flex-direction: column;
+}
+.menu-item{
+    background-color:rgb(189, 186, 186);
+    border: 2px solid black;
+    flex:1;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}

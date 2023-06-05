@@ -1,8 +1,12 @@
 <div class="profile-container">
-<p>profile works!</p>
-<div *ngIf="currentUser$ | async as currentUser"> 
+<div class="profile-display" *ngIf="currentUser$ | async as currentUser"> 
+    <img src="{{currentUser.imgSrc}}">
     <p>{{currentUser.userName}}</p>
     <p>{{currentUser.tagline}}</p>
-    <img src="{{currentUser.imgSrc}}">
+   
+    <p>FOLLOWERS</p>
+    <p> {{currentUser.followers.length}}</p>
+    <p>FOLLOWING</p>
+    <p>{{currentUser.following.length}}</p>
 </div>
 </div>

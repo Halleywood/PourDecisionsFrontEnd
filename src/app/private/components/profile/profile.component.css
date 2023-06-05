@@ -1,9 +1,18 @@
 .profile-container{
     border:2px solid green;
+    display: flex;
+    max-height:100%;
+}
+.profile-display{
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    border:2px solid purple;
+    width:100%;
 }
 img{
     border-radius:50%;
     border:2px solid green;
-    max-height:20%;
-    max-width:150px;
+    max-height:200px;
+    min-height:200px;
 }
