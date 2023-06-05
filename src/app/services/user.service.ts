@@ -11,10 +11,6 @@ import { UserProfile } from '../userprofile.model';
 })
 export class UserService {
 
-  testData: any;
-  private currentUser: BehaviorSubject<UserProfile |null> = new BehaviorSubject<UserProfile|null>(null);
-
-
   constructor(private http: HttpClient) { }
 
   public getCurrentUser(){

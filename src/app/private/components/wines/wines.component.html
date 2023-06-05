@@ -1,1 +1,9 @@
-<p>wines works!</p>
+
+<div *ngIf="wines">
+    <div *ngFor="let wine of wines">
+        <div class="wine">
+            <a routerLink="/wine/{{wine.id}}">SEE WINE</a>
+            <p> NAME: {{wine.name}} </p>
+        </div>
+    </div>
+</div>
