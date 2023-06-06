@@ -1,0 +1,17 @@
+<div class="post-details-container">
+    <div *ngIf="post$ | async as currentPost" class="post-details-display">
+        <p>{{currentPost.title}}</p>
+        <p>{{currentPost.tastingNotes}}</p>
+        <p>{{currentPost.rating}}</p>
+        <p>{{currentPost.userProfile.userName}}</p>
+        <!-- <img src="{{currentPost.imgSrc}}"> -->
+        <div *ngIf="userId === currentPost.userProfile.id" class="conditional-links">
+            <button [routerLink]="['/update-post', currentPost.id]">Edit</button>
+            <button (click)="deletePost(currentPost.id)">Delete</button>
+        </div>
+    </div>
+    <div *ngIf="(post$ | async) === null">
+        <p>Oops, it appears this post doesn't exist!</p>
+    </div>
+    <button type="button"><a routerLink="/private/home">Go Back</a></button>
+</div>

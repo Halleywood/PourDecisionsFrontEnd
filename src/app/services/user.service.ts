@@ -11,6 +11,7 @@ import { UserProfile } from '../userprofile.model';
 })
 export class UserService {
 
+
   constructor(private http: HttpClient) { }
 
   public getCurrentUser(){

@@ -1,7 +1,7 @@
 import { UserProfile } from "./userprofile.model"
 
 export class Post{
-    id: string
+    id: string 
     title: string
     tastingNotes: string
     imgSrc: string 

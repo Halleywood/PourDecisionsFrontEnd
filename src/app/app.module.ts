@@ -12,6 +12,7 @@ import { UserService } from './services/user.service';
 import { WineDetailsComponent } from './private/components/wine-details/wine-details.component';
 import { CommunityComponent } from './private/components/community/community.component';
 import { PostCreateComponent } from './private/components/post-create/post-create.component';
+import { PostDetailsComponent } from './private/components/post-details/post-details.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { PostCreateComponent } from './private/components/post-create/post-creat
     AppComponent,
     WineDetailsComponent,
     CommunityComponent,
-    PostCreateComponent
+    PostCreateComponent,
+    PostDetailsComponent
    
   ],
   imports: [

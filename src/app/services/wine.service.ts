@@ -27,4 +27,12 @@ export class WineService {
   public createPost(wineId: number, post: Post): Observable<any>{
     return this.http.post(`http://localhost:8080/api/posts/${wineId}`, post)
   }
+
+  public getPost(id: number): Observable<Post>{
+    return this.http.get<Post>(`http://localhost:8080/api/posts/${id}`)
+  }
+  public deletePost(id: number){
+    console.log("MADE IT TO THE WINE SERVICE DELETE METHOD")
+    return this.http.delete(`http://localhost:8080/api/posts/${id}`)
+  }
 }
