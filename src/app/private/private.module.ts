@@ -6,6 +6,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { NavmenuComponent } from './components/navmenu/navmenu.component';
 import { WinesComponent } from './components/wines/wines.component';
 import { PostUpdateComponent } from './components/post-update/post-update.component';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -17,7 +18,10 @@ import { PostUpdateComponent } from './components/post-update/post-update.compon
   ],
   imports: [
     CommonModule, 
-    PrivateRoutingModule
+    PrivateRoutingModule, 
+    FormsModule, 
+    ReactiveFormsModule
+
   ]
 })
 export class PrivateModule { }

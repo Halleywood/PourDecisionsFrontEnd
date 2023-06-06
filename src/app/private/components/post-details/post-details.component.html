@@ -4,9 +4,10 @@
         <p>{{currentPost.tastingNotes}}</p>
         <p>{{currentPost.rating}}</p>
         <p>{{currentPost.userProfile.userName}}</p>
+        <p>{{currentPost.id}}</p>
         <!-- <img src="{{currentPost.imgSrc}}"> -->
         <div *ngIf="userId === currentPost.userProfile.id" class="conditional-links">
-            <button [routerLink]="['/update-post', currentPost.id]">Edit</button>
+            <button [routerLink]="'/private/update/'+currentPost.id">Edit</button>
             <button (click)="deletePost(currentPost.id)">Delete</button>
         </div>
     </div>

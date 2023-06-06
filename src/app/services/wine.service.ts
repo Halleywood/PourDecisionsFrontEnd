@@ -35,4 +35,9 @@ export class WineService {
     console.log("MADE IT TO THE WINE SERVICE DELETE METHOD")
     return this.http.delete(`http://localhost:8080/api/posts/${id}`)
   }
+
+  public updatePost(id: number, post: Post){
+    console.log("UPDATE METHOD")
+    return this.http.put(`http://localhost:8080/api/posts/${id}`, post)
+  }
 }

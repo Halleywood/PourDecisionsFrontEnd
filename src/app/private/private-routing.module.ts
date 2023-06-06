@@ -8,6 +8,7 @@ import { PostCreateComponent } from './components/post-create/post-create.compon
 import { PostDetailsComponent } from './components/post-details/post-details.component';
 import { Wine } from '../wine.model';
 import { WinesComponent } from './components/wines/wines.component';
+import { PostUpdateComponent } from './components/post-update/post-update.component';
 
 const routes: Routes = [
     {path: 'home', component: HomepageComponent, canActivate: [AuthGuard]}, 
@@ -15,6 +16,7 @@ const routes: Routes = [
     {path: 'wines/:id', component: WineDetailsComponent, canActivate: [AuthGuard]},
     {path: 'post', component: PostCreateComponent, canActivate:[AuthGuard]},
     {path:'post-details/:id', component:PostDetailsComponent, canActivate:[AuthGuard]},
+    {path: 'update/:id', component: PostUpdateComponent, canActivate:[AuthGuard]},
     {path: '**', redirectTo: 'home', pathMatch: "full"}
 ]
 

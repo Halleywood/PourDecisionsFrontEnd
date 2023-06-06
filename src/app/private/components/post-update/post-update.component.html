@@ -1,1 +1,19 @@
-<p>post-update works!</p>
+<div class="post-update-container">
+    <div *ngIf="updatePost$ | async as currentPost">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(currentPost.id)">
+        <label for="title">Title:</label>
+        <input type="text" id="title" formControlName="title">
+    
+        <label for="tastingNotes">Tasting Notes:</label>
+        <input type="textarea" id="tastingNotes" formControlName="tastingNotes">
+
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" formControlName="rating">
+
+        <label for="imgSrc">Rating:</label>
+        <input type="text" id="imgSrc" formControlName="imgSrc">
+    
+        <button type="submit" [disabled] = "form.invalid"> Update </button>
+    </form>
+    </div>
+</div>
