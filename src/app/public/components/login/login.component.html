@@ -1,16 +1,23 @@
 <div class="login-container">
+    <div class="left-column">
+    </div>
+    <div class="right-column">
+        <div class="form-title">
+            <h6>Get ready to make some</h6>
+               <h1>POUR DECISIONS</h1>
+               
+        </div>
+        <div class="form-body">
         <form [formGroup]="form" (ngSubmit)="loginUser()">
-            <label for="email">Email:</label>
-            <input type="text" id="email" formControlName="email">
-        
-            <label for="password">Password:</label>
-            <input type="password" id="password" formControlName="password">
+            <input placeholder="Email" type="text" id="email" formControlName="email">
+            <input placeholder="Password" type="password" id="password" formControlName="password">
         
             <button type="submit" [disabled] = "form.invalid"> Login! </button>
         </form>
-     
-
-
-<p> Not Registered? Click Here to Register!</p>
-<button type="button"><a routerLink="/public/register">Register</a></button>
+        </div>
+        <div class="form-footer">
+        <p> Not a member yet?</p>
+        <button type="button"><a routerLink="/public/register">Sign up</a></button>
+        </div>
+    </div>
 </div>

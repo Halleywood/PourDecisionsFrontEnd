@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core"
 import { RouterModule, Routes } from "@angular/router"
 import { AuthGuard } from "./services/auth.guard"
-import { PrivateModule } from "./private/private.module"
 
 
 const routes: Routes=[

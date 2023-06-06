@@ -1,12 +1,21 @@
 <div class="register-container">
-<form [formGroup]="form" (ngSubmit)="registerUser()">
-    <label for="email">Email:</label>
-    <input type="text" id="email" formControlName="email">
+    <div class="left-column">
+    </div>
+    <div class="right-column">
+        <div class="form-title">
+            <h6>test</h6>
+                <h1> Sign up! </h1>
+        </div>
+        <div class="form-body">
+            <form [formGroup]="form" (ngSubmit)="registerUser()">
+                <input placeholder="Email" type="text" id="email" formControlName="email">
+                <input placeholder="Password" type="password" id="password" formControlName="password">
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" formControlName="password">
-
-    <button type="submit" [disabled] = "form.invalid">Register</button>
-</form>
-<button type="button"><a routerLink="/public/login">Go Back to Login!</a></button>
+                <button type="submit" [disabled] = "form.invalid">Register</button>
+            </form>
+        </div>
+        <div class="form-footer">
+        <button class="form-button" type="button"><a routerLink="/public/login">Go Back to Login!</a></button>
+        </div>
+    </div>
 </div>

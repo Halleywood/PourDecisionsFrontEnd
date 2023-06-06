@@ -1,6 +1,9 @@
 .body-container{
-   margin: 0 auto;
-   display: flex;
-   justify-content: center;
-   border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #410318;
+    max-height:100vh;
+    min-height:100vh;
+    width: 100vw;
 }
