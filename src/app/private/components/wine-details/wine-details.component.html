@@ -2,6 +2,8 @@
    <p>{{currentWine.name}}</p>
    <p>{{currentWine.vintage}}</p>
    <p>{{currentWine.tastingNotes}}</p>
+   <h3>CREATE A POST?</h3>
+   <button (click)="createAPost()" type="button">Write a Post</button>
    <p>POSTS:</p>
         <div *ngFor="let post of posts">
             <p>{{post.title}}</p>

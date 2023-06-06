@@ -4,10 +4,12 @@ import { RouterModule, Routes } from '@angular/router'
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { AuthGuard } from '../services/auth.guard';
 import { WineDetailsComponent } from './components/wine-details/wine-details.component';
+import { PostCreateComponent } from './components/post-create/post-create.component';
 
 const routes: Routes = [
     {path: 'home', component: HomepageComponent, canActivate: [AuthGuard]}, 
     {path: 'wine/:id', component: WineDetailsComponent, canActivate: [AuthGuard]},
+    {path: 'post', component: PostCreateComponent, canActivate:[AuthGuard]},
     {path: '**', redirectTo: 'home', pathMatch: "full"}
 ]
 

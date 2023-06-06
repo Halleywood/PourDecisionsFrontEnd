@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WineService } from 'src/app/services/wine.service';
 import { Wine } from 'src/app/wine.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {Observable} from 'rxjs'
 import { Post } from 'src/app/post.model';
 
@@ -15,7 +15,7 @@ export class WineDetailsComponent implements OnInit{
   currentWine$: Observable<Wine | null> = new Observable<Wine | null>()
   posts: Post[] = [];
   
-  constructor(private wineService: WineService, private route: ActivatedRoute){}
+  constructor(private wineService: WineService, private route: ActivatedRoute, private router: Router){}
 
   ngOnInit(): void{
       this.route.paramMap.subscribe( params => {
@@ -25,9 +25,11 @@ export class WineDetailsComponent implements OnInit{
     this.currentWine$ = this.wineService.getAWine(this.wineId)
     this.wineService.getPostsForWine(this.wineId).subscribe((posts: Post[]) =>{
       this.posts = posts})
-      console.log(this.posts)
-}
+  }
+
+  createAPost(): void {
+    this.wineService.currentWineForPost = this.wineId;
+    this.router.navigate(['/private/post']);
+  }
 
 }
-// this.wineService.getAllWines().subscribe((wines: Wine[]) =>{
-//   this.wines = wines; 

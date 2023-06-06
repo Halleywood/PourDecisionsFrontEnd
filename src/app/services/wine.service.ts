@@ -8,6 +8,7 @@ import {Observable } from 'rxjs'
   providedIn: 'root'
 })
 export class WineService {
+  currentWineForPost: string='';
 
   constructor(private http: HttpClient) { }
 
@@ -21,5 +22,9 @@ export class WineService {
 
   public getPostsForWine(id: number): Observable<Post[]>{
     return this.http.get<Post[]>(`http://localhost:8080/api/wineposts/${id}`)
+  }
+
+  public createPost(wineId: number, post: Post): Observable<any>{
+    return this.http.post(`http://localhost:8080/api/posts/${wineId}`, post)
   }
 }
