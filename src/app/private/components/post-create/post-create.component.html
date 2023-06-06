@@ -1,0 +1,19 @@
+<div class="post-create-container">
+<form [formGroup]="postForm" (ngSubmit)="createPost()">
+    <label for="title">Title:</label>
+    <input type="text" id="title" formControlName="title">
+
+    <label for="rating">Rating:</label>
+    <input type="number" id="rating" formControlName="rating">
+
+    <label for="tastinNotes">Tasting Notes:</label>
+    <input type="text" id="tastingNotes" formControlName="tastingNotes">
+
+    <label for="imgSrc">Img:</label>
+    <input type="text" id="imgSrc" formControlName="imgSrc">
+
+
+    <button type="submit" [disabled] = "postForm.invalid"> create! </button>
+</form>
+</div>
+<button type="button"><a routerLink="/private/home">Go Back</a></button>

@@ -5,15 +5,15 @@ export class Post{
     title: string
     tastingNotes: string
     imgSrc: string 
-    ranking: string 
+    rating: number 
     userProfile: UserProfile;
    
-    constructor(id: string, title: string, tastingNotes: string, imgSrc: string, ranking: string, userProfile: UserProfile){
+    constructor(id: string, title: string, tastingNotes: string, imgSrc: string, rating: number, userProfile: UserProfile){
         this.id= id; 
         this.title=title; 
         this.tastingNotes=tastingNotes; 
         this.imgSrc = imgSrc; 
-        this.ranking = ranking; 
+        this.rating = rating;
         this.userProfile = userProfile;
     }
 }
