@@ -5,5 +5,10 @@
     background-color: #410318;
     max-height:100vh;
     min-height:100vh;
-    width: 100vw;
+    max-width:98.5vw;
+    min-width:98.5vw;
+    margin: auto 0; 
+    padding:0;
+    overflow: none;
+    font-family: 'Edu QLD Beginner', cursive;
 }

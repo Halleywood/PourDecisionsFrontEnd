@@ -1,21 +1,35 @@
 .home-container{
-    border:2px solid cornflowerblue;
-    height:80vh; 
-    width:80vw;
+    background-color: white;
+    height:100vh; 
+    width:100vw;
     display: grid;
-    grid-template-rows: 200px 80px 1fr;
+    grid-template-rows: 200px 125px 50px 1fr;
     grid-template-columns: 1fr;
+}
+.home-header{
+    grid-row: 1/ span 1;
+    grid-column: 1/ span 3;
+    background-image: url('../../../../assets/images/AdobeStock_90473273.jpeg');
+    background-size:20%;
+    background-position: 0 60%;
+    filter:brightness(.8)
 }
 .profile-header{
     grid-column: 1 /span 3 ;
-    grid-row: 1/ span 1;
+    grid-row: 2/ span 1;
+    z-index: 2;
 }
 .navmenu{
     grid-column: 1/span 3; 
-    grid-row: 2/ span 1;
+    grid-row: 3/ span 1;
 }
 .content{
     grid-column: 1/span 3;
-    border: 2px solid orange;
-    grid-row: 3/ span 1;
+    grid-row: 4/ span 1;
+}
+
+@media screen and (max-width:1000px) {
+    .home-header{
+        background-size: cover;
+    }
 }
