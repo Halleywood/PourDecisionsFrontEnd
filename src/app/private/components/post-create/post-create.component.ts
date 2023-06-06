@@ -41,6 +41,7 @@ export class PostCreateComponent {
       this.wineService.createPost(parsedId, this.postForm.value).subscribe(
         (response)=>{
           console.log("post created successfully", response);
+          //need to redirect to see single post page! 
         }, 
         (error)=>{
           console.error("ERROR CREATING POST!", error)
