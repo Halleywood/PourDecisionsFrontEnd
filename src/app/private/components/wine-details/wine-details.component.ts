@@ -29,7 +29,7 @@ export class WineDetailsComponent implements OnInit{
 
   createAPost(): void {
     this.wineService.currentWineForPost = this.wineId;
-    this.router.navigate(['/private/post']);
+    this.router.navigate(['/secure/post']);
   }
 
 }

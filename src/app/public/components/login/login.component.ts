@@ -30,7 +30,7 @@ export class LoginComponent {
     //by subscribing to it...it wont do the if check until the login method is finished. This is where it sets the token to storage and will return TRUE for "isloggedin()"
     this.jwtService.login(this.form.value).subscribe(()=>{
       if(this.jwtService.isLoggedIn()){
-        this.router.navigate(['/private/home'])
+        this.router.navigate(['/secure'])
       }
     })
   }

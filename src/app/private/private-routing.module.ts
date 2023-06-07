@@ -9,17 +9,20 @@ import { PostDetailsComponent } from './components/post-details/post-details.com
 import { Wine } from '../wine.model';
 import { WinesComponent } from './components/wines/wines.component';
 import { PostUpdateComponent } from './components/post-update/post-update.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { NavmenuComponent } from './components/navmenu/navmenu.component';
 
 const routes: Routes = [
-    {path: 'home', component: HomepageComponent, canActivate: [AuthGuard]}, 
-    {path: 'wines', component: WinesComponent, canActivate:[AuthGuard]},
-    {path: 'wines/:id', component: WineDetailsComponent, canActivate: [AuthGuard]},
-    {path: 'post', component: PostCreateComponent, canActivate:[AuthGuard]},
-    {path:'post-details/:id', component:PostDetailsComponent, canActivate:[AuthGuard]},
-    {path: 'update/:id', component: PostUpdateComponent, canActivate:[AuthGuard]},
-    {path: '**', redirectTo: 'home', pathMatch: "full"}
+    {path: '', component: HomepageComponent, canActivate: [AuthGuard], 
+      children:[
+        {path: 'wines', component: WinesComponent, canActivate: [AuthGuard]}, 
+        {path: 'wines/:id', component: WineDetailsComponent, canActivate: [AuthGuard]},
+        {path: 'post', component: PostCreateComponent, canActivate:[AuthGuard]}, 
+        {path:'post-details/:id', component:PostDetailsComponent, canActivate:[AuthGuard]},
+        {path: 'update/:id', component: PostUpdateComponent, canActivate:[AuthGuard]},
+      ]},
+    {path: '**', redirectTo: '', pathMatch: "full"}
 ]
-
 
 @NgModule({
   imports:[RouterModule.forChild(routes)],

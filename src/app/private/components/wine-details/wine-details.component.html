@@ -1,17 +1,42 @@
-<div *ngIf="currentWine$ | async as currentWine"> 
-   <p>{{currentWine.name}}</p>
-   <p>{{currentWine.vintage}}</p>
-   <p>{{currentWine.tastingNotes}}</p>
-   <h3>CREATE A POST?</h3>
-   <button (click)="createAPost()" type="button">Write a Post</button>
-   <p>POSTS:</p>
-        <div *ngFor="let post of posts">
-            <p>{{post.title}}</p>
-            <p>{{post.tastingNotes}}</p>
-            <p>{{post.userProfile.userName}}</p>
-            <p>{{post.userProfile.id}}</p>
+
+
+
+
+<div class="wine-details-container">
+    <div *ngIf="currentWine$ | async as currentWine"> 
+    <div class="wine-card">
+        <div class="image-container"><img src="{{currentWine.imgSrc}}"></div>
+        <div class="title-container"><h2>{{currentWine.name}}</h2></div>
+        <div class="details">
+            <ul>
+                <li>Varietal:</li>
+                <p>{{currentWine.varietal}}</p>
+                <li>Vintage: </li>
+                <p>{{currentWine.vintage}}</p>
+                <li>Vitner: </li>
+                <p>{{currentWine.vitner}}</p>
+                <li>Tasting Notes: </li>
+                <p>{{currentWine.tastingNotes}}</p>
+                <li>Aeration Time:</li>
+                <p>{{currentWine.aerationTime}}</p>
+                <li>Glassware:</li>
+                <p> {{currentWine.glassWare}}</p>
+                <li>Serving Temperature:</li>
+                <p>{{currentWine.servingTemperature}} F</p>
+                <li>Pair With:</li>
+                <p>{{currentWine.pairing}}</p>
+            </ul>
         </div>
+    <div class="button-container">
+        <button (click)="createAPost()" type="button">Write a Post</button>
+        <button><a routerLink="/secure/wines">Back</a></button>
+      </div>
+    </div>
+    </div>
+    <div class="wine-card-2">
+        <div *ngIf="currentWine$ | async as currentWine"> 
+            
+        </div>
+    </div>
 </div>
-<div>
-    <a routerLink="/private/home">Back</a>
-</div>
+

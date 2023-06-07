@@ -1,9 +1,46 @@
 
+<div class="entire-container">
+    <h1>Browse All Wines</h1>
+<div class="scroll">
 <div *ngIf="wines">
-    <div *ngFor="let wine of wines">
-        <div class="wine">
-            <a routerLink="/private/wines/{{wine.id}}">{{wine.name}} </a>
+    <div class="wine-cards">
+        <div *ngFor="let wine of wines">
+                <div class="wine-box">
+                    <img class="wine-img" src="{{wine.imgSrc}}">
+                    <div class="wine-content">
+                        <div class="wine-name"><a routerLink="/secure/wines/{{wine.id}}">{{wine.name}} </a></div>
+                        <div class="wine-vitner">{{wine.vitner}}</div>
+                        <div class="wine-vintage">{{wine.vintage}}</div>
+                    </div>
+                </div>
+        </div>
+
+</div>
+    </div>
+</div>
+
+    <div class="search-box">
+        <h1>Search By Varietal</h1>
+        <form class="d-flex" role="search"(ngSubmit)="onSubmit()">
+            <input class="form-control me-2" type="search" [(ngModel)]="keyword" name="keyword" placeholder="Varietal" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit" >Search</button>
+        </form>
+    </div>
+    <div class="scroll">
+<div *ngIf="arrayOfWines">
+    <div class="wine-cards">
+        <div *ngFor="let wine of arrayOfWines">
+                <div class="wine-box">
+                    <img class="wine-img" src="{{wine.imgSrc}}">
+                    <div class="wine-content">
+                        <div class="wine-name"><a routerLink="/secure/wines/{{wine.id}}">{{wine.name}} </a></div>
+                        <div class="wine-vitner">{{wine.vitner}}</div>
+                        <div class="wine-vintage">{{wine.vintage}}</div>
+                    </div>
+                </div>
         </div>
     </div>
 </div>
-<div> POSTS: </div>
+
+</div>
+</div>
