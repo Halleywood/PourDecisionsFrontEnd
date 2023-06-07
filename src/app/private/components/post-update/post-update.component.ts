@@ -14,6 +14,7 @@ import {FormGroup, Validators, FormControl} from '@angular/forms'
 export class PostUpdateComponent implements OnInit{
 
   updatePost$: Observable<Post| null> = new Observable<Post | null>(); 
+  wineId: number | null =null;
 
   form: FormGroup = new FormGroup({
     title: new FormControl(null, [Validators.required]), 
@@ -39,8 +40,6 @@ export class PostUpdateComponent implements OnInit{
 
   ngOnInit(){
     const postId = this.route.snapshot.paramMap.get('id')
-    console.log("IIIII")
-    console.log(postId)
     if(postId){
       const parsedId = parseInt(postId)
       this.updatePost$ = this.wineService.getPost(parsedId)
@@ -60,7 +59,7 @@ export class PostUpdateComponent implements OnInit{
       const parsedId = parseInt(id)
       this.wineService.updatePost(parsedId, this.form.value).subscribe(response=>{
         if(response){
-          this.router.navigate(['/private/post-details/'+parsedId])
+          this.router.navigate(['/secure/wines/'+this.wineService.currentWineId])
         }
       });
     }

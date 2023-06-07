@@ -14,7 +14,7 @@ export class PostDetailsComponent implements OnInit{
   @Input() postId:string | undefined;
   userId:any;
   posts: Post[] = [];
-  @Output() postDeleted: EventEmitter<number> = new EventEmitter<number>();
+
   
   post$: Observable<Post| null> = new Observable<Post | null>(); 
   constructor(private wineService: WineService, private userService: UserService, private route: ActivatedRoute, private router: Router){}
@@ -39,10 +39,10 @@ export class PostDetailsComponent implements OnInit{
     this.wineService.deletePost(parsedId).subscribe(()=>{
       const updatedPosts = this.posts.filter(post=>parseInt(post.id) !== parsedId);
       this.posts = updatedPosts; 
-      this.postDeleted.emit(parsedId)
       console.log("POST SUCCESSFULLY DELETED! 💥")},
       (error)=>{
         console.log("ERROR DELETING POST! 🚩", error)
       })
+      this.router.navigate(['/secure/wines'])
   }
 }

@@ -10,7 +10,7 @@
                 <h4>-{{currentPost.userProfile.userName}}</h4>
             </div>
             <div *ngIf="userId === currentPost.userProfile.id" class="conditional-links">
-                <button [routerLink]="'/secure/update/'+currentPost.id">Edit</button>
+                <button [routerLink]="'/secure/update/' + currentPost.id">Edit</button>
                 <button (click)="deletePost(currentPost.id)">Delete</button>
             </div>
         </div>

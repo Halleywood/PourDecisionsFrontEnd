@@ -19,7 +19,8 @@ const routes: Routes = [
         {path: 'wines/:id', component: WineDetailsComponent, canActivate: [AuthGuard]},
         {path: 'post', component: PostCreateComponent, canActivate:[AuthGuard]}, 
         {path:'post-details/:id', component:PostDetailsComponent, canActivate:[AuthGuard]},
-        {path: 'update/:id', component: PostUpdateComponent, canActivate:[AuthGuard]},
+        {path: 'update/:id', component: PostUpdateComponent, canActivate:[AuthGuard]}
+  
       ]},
     {path: '**', redirectTo: '', pathMatch: "full"}
 ]
