@@ -2,14 +2,22 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Wine } from '../wine.model';
 import { Post } from '../post.model';
-import {Observable } from 'rxjs'
+import {Observable, of } from 'rxjs'
+import {catchError} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WineService {
-  currentWineForPost: string='';
+  currentWineId: number | null = null;
   data: any;
+
+  setCurrentWineId(id: number): void{
+    this.currentWineId = id;
+  }
+  resetCurrentWineId(): void{
+    this.currentWineId = null;
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -19,11 +27,21 @@ export class WineService {
   }
 
   public getAWine(id: number): Observable<Wine>{
-    return this.http.get<Wine>(`http://localhost:8080/api/wine/${id}`)
+    const wine = this.http.get<Wine>(`http://localhost:8080/api/wine/${id}`)
+    wine.subscribe(w=>{
+      const wineId = parseInt(w.id)
+      this.setCurrentWineId(wineId)
+    })
+    return wine; 
   }
 
   public getPostsForWine(id: number): Observable<Post[]>{
-    return this.http.get<Post[]>(`http://localhost:8080/api/wineposts/${id}`)
+    return this.http.get<Post[]>(`http://localhost:8080/api/wineposts/${id}`).pipe(
+      catchError((error)=>{
+        console.log(error("UNABLE TO FETCH POSTS FOR WINE", error));
+        return of([])
+      })
+    )
   }
 
   public createPost(wineId: number, post: Post): Observable<any>{

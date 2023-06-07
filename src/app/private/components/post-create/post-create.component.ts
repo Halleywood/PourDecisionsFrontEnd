@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormGroup, Validators, FormControl} from '@angular/forms'
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { WineService } from 'src/app/services/wine.service';
 
@@ -11,6 +11,7 @@ import { WineService } from 'src/app/services/wine.service';
 })
 export class PostCreateComponent {
 
+  wineId: number | null = null;
 
   postForm: FormGroup = new FormGroup({
     title: new FormControl(null, [Validators.required]), 
@@ -32,21 +33,23 @@ export class PostCreateComponent {
     return this.postForm.get('imgSrc') as FormControl;
   }
 
-  constructor(private wineService: WineService, private userService: UserService, private route: ActivatedRoute){
+  constructor(private wineService: WineService, private userService: UserService, private route: ActivatedRoute, private router: Router){
   }
 
   public createPost(): void{
-    console.log(this.postForm)
-    const parsedId = parseInt(this.wineService.currentWineForPost)
-      this.wineService.createPost(parsedId, this.postForm.value).subscribe(
+    this.wineId = this.wineService.currentWineId
+    if(this.wineId){
+      this.wineService.createPost(this.wineId, this.postForm.value).subscribe(
         (response)=>{
           console.log("post created successfully", response);
-          //need to redirect to see single post page! 
+          this.router.navigate(['/secure/wines/', this.wineId])
         }, 
         (error)=>{
           console.error("ERROR CREATING POST!", error)
         }
       )
     }
-  }
+
+    }
+}
 

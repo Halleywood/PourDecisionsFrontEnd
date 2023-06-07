@@ -11,16 +11,16 @@ import {Observable} from 'rxjs'
   styleUrls: ['./post-details.component.css']
 })
 export class PostDetailsComponent implements OnInit{
-  @Input() post: any={};
+  @Input() postId:string | undefined;
   userId:any;
   
   post$: Observable<Post| null> = new Observable<Post | null>(); 
   constructor(private wineService: WineService, private userService: UserService, private route: ActivatedRoute, private router: Router){}
 
   ngOnInit(): void{
-    const postId = this.route.snapshot.paramMap.get('id') || this.route.snapshot.queryParamMap.get('id');
-    if(postId){
-      const parsedId = parseInt(postId)
+    // const postId = this.route.snapshot.paramMap.get('id') || this.route.snapshot.queryParamMap.get('id');
+    if(this.postId){
+      const parsedId = parseInt(this.postId)
       this.post$ = this.wineService.getPost(parsedId);
     }
     this.getCurrentUserId();
@@ -35,6 +35,5 @@ export class PostDetailsComponent implements OnInit{
   public deletePost(id: string){
     const parseId = parseInt(id)
     this.wineService.deletePost(parseId).subscribe();
-    console.log("DELETED IN POST-DETAILS COMPONENT")
   }
 }

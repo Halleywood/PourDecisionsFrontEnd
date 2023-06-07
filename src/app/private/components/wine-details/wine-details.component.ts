@@ -26,11 +26,9 @@ export class WineDetailsComponent implements OnInit{
     this.currentWine$ = this.wineService.getAWine(this.wineId)
     this.wineService.getPostsForWine(this.wineId).subscribe((posts: Post[]) =>{
       this.posts = posts})
-      console.log(this.posts)
   }
 
   createAPost(): void {
-    this.wineService.currentWineForPost = this.wineId;
     this.router.navigate(['secure/post']);
   }
 
