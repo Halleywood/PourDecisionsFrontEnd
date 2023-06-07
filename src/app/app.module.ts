@@ -13,7 +13,7 @@ import { CommunityComponent } from './private/components/community/community.com
 import { PostCreateComponent } from './private/components/post-create/post-create.component';
 import { WineDetailsComponent } from './private/components/wine-details/wine-details.component';
 import { PostDetailsComponent } from './private/components/post-details/post-details.component';
-
+import { WineService } from './services/wine.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import { PostDetailsComponent } from './private/components/post-details/post-det
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [JwtClientService, UserService, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}],
+  providers: [JwtClientService, UserService, WineService, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

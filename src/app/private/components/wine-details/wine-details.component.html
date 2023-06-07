@@ -38,7 +38,6 @@
         <h1>What User's are saying about this Wine: </h1>
         <div class="post-container">
         <div *ngIf="posts"> 
-    
                 <app-post-details *ngFor="let post of posts" [postId]="post.id"></app-post-details>
         </div>
         </div>

@@ -4,8 +4,6 @@ import { Wine } from 'src/app/wine.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import {Observable} from 'rxjs'
 import { Post } from 'src/app/post.model';
-import { PostDetailsComponent } from '../post-details/post-details.component';
-
 
 @Component({
   selector: 'app-wine-details',
@@ -18,30 +16,24 @@ export class WineDetailsComponent implements OnInit{
   posts: Post[] = [];
   currentWine$: Observable<Wine | null> = new Observable<Wine | null>()
 
-  constructor(private wineService: WineService, private route: ActivatedRoute, private router: Router){}
+  constructor(public wineService: WineService, private route: ActivatedRoute, private router: Router){}
 
   ngOnInit(): void{
+      console.log('WineDetailsComponent initialized');
       this.route.paramMap.subscribe( params => {
       let paramId: string = params.get('id') || '';
       this.wineId = parseInt(paramId)
     })
     this.currentWine$ = this.wineService.getAWine(this.wineId)
-    
-    this.wineService.postsUpdated$.subscribe((posts: Post[])=>{
-      this.posts = posts;
-    })
+  
     this.wineService.getPostsForWine(this.wineId).subscribe((posts: Post[])=>{
       this.posts = posts;
-      this.wineService.updatePostsArray(posts)
     })
-   
+
   }
-  
 
   createAPost(): void {
     this.router.navigate(['secure/post']);
   }
-    // this.wineService.getPostsForWine(this.wineId).subscribe((posts: Post[]) =>{
-    //   this.posts = posts})
 
 }

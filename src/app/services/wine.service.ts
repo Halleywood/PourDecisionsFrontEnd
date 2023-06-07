@@ -41,20 +41,13 @@ export class WineService {
     return wine;
   }
 
-  public getPostsForWine(id: number): Observable<Post[]>{
+  public getPostsForWine(id: number): Observable<Post[]> {
     return this.http.get<Post[]>(`http://localhost:8080/api/wineposts/${id}`).pipe(
-      tap((posts: Post[])=>{
-        this.updatePostsArray(posts);
-      }),
-      catchError((error)=>{
+      catchError((error) => {
         console.log(error("UNABLE TO FETCH POSTS FOR WINE", error));
-        return of([])
+        return of([]);
       })
-    )
-  }
-
-  public updatePostsArray(posts:Post[]): void{
-    this.postsSubject.next(posts)
+    );
   }
 
   public createPost(wineId: number, post: Post): Observable<any>{
