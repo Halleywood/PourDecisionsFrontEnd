@@ -9,20 +9,17 @@ import { PrivateModule } from './private/private.module';
 import { PublicModule } from './public/public.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { UserService } from './services/user.service';
-import { WineDetailsComponent } from './private/components/wine-details/wine-details.component';
 import { CommunityComponent } from './private/components/community/community.component';
 import { PostCreateComponent } from './private/components/post-create/post-create.component';
+import { WineDetailsComponent } from './private/components/wine-details/wine-details.component';
 import { PostDetailsComponent } from './private/components/post-details/post-details.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    WineDetailsComponent,
     CommunityComponent,
-    PostCreateComponent,
-    PostDetailsComponent
-   
+    PostCreateComponent, WineDetailsComponent, PostDetailsComponent
   ],
   imports: [
     BrowserModule, 

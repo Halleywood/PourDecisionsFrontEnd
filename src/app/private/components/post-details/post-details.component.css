@@ -1,1 +1,42 @@
-
+  .post-card{
+    min-width:100%;
+    display:flex;
+    margin:10px;
+    padding:5px;
+    border-bottom: 1px solid black;
+  }
+  
+  .post-image{
+    flex:1;
+    display: flex;
+    align-items: center;
+    border-radius:10px;
+  }
+  h4{
+    padding: 0; 
+    margin: 0;
+    font-size: 1.4rem;
+    text-align: right;
+  }
+  .post-image > img{
+    min-height:85%;
+    max-height:85%;
+    min-width:100%; 
+    max-width:100%;
+    object-fit: contain;
+    border-radius:10px;
+  }
+  .content{
+    flex:3;
+    padding-left: 10px;
+    & h1{
+      text-decoration: underline;
+      margin:2px; 
+      padding: 2px;
+    }
+  }
+  p{
+    font-size:1.8rem;
+    margin:2px; 
+    padding: 2px;
+  }

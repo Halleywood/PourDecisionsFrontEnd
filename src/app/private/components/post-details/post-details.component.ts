@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from 'src/app/post.model';
 import { WineService } from 'src/app/services/wine.service';
@@ -11,7 +11,7 @@ import {Observable} from 'rxjs'
   styleUrls: ['./post-details.component.css']
 })
 export class PostDetailsComponent implements OnInit{
-
+  @Input() post: any={};
   userId:any;
   
   post$: Observable<Post| null> = new Observable<Post | null>(); 

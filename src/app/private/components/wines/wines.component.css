@@ -17,7 +17,7 @@ h1{
     white-space: nowrap;
     align-items: center;
     justify-content: center;
-    max-width:1000px;
+    /* max-width:1500px; */
 }
 .wine-cards{
     display: inline-flex;

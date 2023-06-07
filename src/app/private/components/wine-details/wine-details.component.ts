@@ -4,6 +4,7 @@ import { Wine } from 'src/app/wine.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import {Observable} from 'rxjs'
 import { Post } from 'src/app/post.model';
+import { PostDetailsComponent } from '../post-details/post-details.component';
 
 @Component({
   selector: 'app-wine-details',

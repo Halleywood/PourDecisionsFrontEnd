@@ -1,11 +1,11 @@
-<div class="post-details-container">
+<!-- <div class="post-details-container">
     <div *ngIf="post$ | async as currentPost" class="post-details-display">
         <p>{{currentPost.title}}</p>
         <p>{{currentPost.tastingNotes}}</p>
         <p>{{currentPost.rating}}</p>
         <p>{{currentPost.userProfile.userName}}</p>
         <p>{{currentPost.id}}</p>
-        <!-- <img src="{{currentPost.imgSrc}}"> -->
+         <img src="{{currentPost.imgSrc}}"> 
         <div *ngIf="userId === currentPost.userProfile.id" class="conditional-links">
             <button [routerLink]="'/private/update/'+currentPost.id">Edit</button>
             <button (click)="deletePost(currentPost.id)">Delete</button>
@@ -15,4 +15,21 @@
         <p>Oops, it appears this post doesn't exist!</p>
     </div>
     <button type="button"><a routerLink="/private/home">Go Back</a></button>
-</div>
+</div> -->
+<div *ngIf="post$ | async as currentPost" class="post-details-display">
+        <div class="post-card">
+            <div class="post-image">
+                <img src="{{post.imgSrc}}">
+            </div>
+            <div class="content">
+                <h1>{{post.title}}</h1>
+                <p><b>User Rating:</b> {{post.rating}}</p>
+                <p><b>Tasting Notes:</b>{{post.tastingNotes}}</p>
+                <h4>-{{post.userProfile.userName}}</h4>
+            </div>
+            <div *ngIf="userId === currentPost.userProfile.id" class="conditional-links">
+                <button [routerLink]="'/secure/update/'+currentPost.id">Edit</button>
+                <button (click)="deletePost(currentPost.id)">Delete</button>
+            </div>
+        </div>
+    
