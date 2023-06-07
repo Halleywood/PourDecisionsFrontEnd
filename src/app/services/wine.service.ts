@@ -2,13 +2,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Wine } from '../wine.model';
 import { Post } from '../post.model';
-import {Observable, of } from 'rxjs'
+import {Observable, of, BehaviorSubject, tap } from 'rxjs'
 import {catchError} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WineService {
+
+  private postsSubject = new BehaviorSubject<Post[]>([])
+  public posts$: Observable<Post[]> = this.postsSubject.asObservable(); 
+
+  public postsUpdated$: BehaviorSubject<Post[]> = new BehaviorSubject<Post[]>([])
+
   currentWineId: number | null = null;
   data: any;
 
@@ -32,16 +38,23 @@ export class WineService {
       const wineId = parseInt(w.id)
       this.setCurrentWineId(wineId)
     })
-    return wine; 
+    return wine;
   }
 
   public getPostsForWine(id: number): Observable<Post[]>{
     return this.http.get<Post[]>(`http://localhost:8080/api/wineposts/${id}`).pipe(
+      tap((posts: Post[])=>{
+        this.updatePostsArray(posts);
+      }),
       catchError((error)=>{
         console.log(error("UNABLE TO FETCH POSTS FOR WINE", error));
         return of([])
       })
     )
+  }
+
+  public updatePostsArray(posts:Post[]): void{
+    this.postsSubject.next(posts)
   }
 
   public createPost(wineId: number, post: Post): Observable<any>{
@@ -51,9 +64,15 @@ export class WineService {
   public getPost(id: number): Observable<Post>{
     return this.http.get<Post>(`http://localhost:8080/api/posts/${id}`)
   }
-  public deletePost(id: number){
-    console.log("MADE IT TO THE WINE SERVICE DELETE METHOD")
-    return this.http.delete(`http://localhost:8080/api/posts/${id}`)
+  public deletePost(postId: number): Observable<any>{
+    console.log("FROM WINE SERVICE DELETE POST")
+    return this.http.delete(`http://localhost:8080/api/posts/${postId}`).pipe(
+      tap(() =>{
+        const currentPosts = this.postsUpdated$.getValue();
+        const updatedPosts = currentPosts.filter((post)=>parseInt(post.id) !== postId);
+        this.postsUpdated$.next(updatedPosts)
+      })
+    )
   }
 
   public updatePost(id: number, post: Post){

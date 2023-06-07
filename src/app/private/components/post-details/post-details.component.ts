@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from 'src/app/post.model';
 import { WineService } from 'src/app/services/wine.service';
@@ -13,6 +13,8 @@ import {Observable} from 'rxjs'
 export class PostDetailsComponent implements OnInit{
   @Input() postId:string | undefined;
   userId:any;
+  posts: Post[] = [];
+  @Output() postDeleted: EventEmitter<number> = new EventEmitter<number>();
   
   post$: Observable<Post| null> = new Observable<Post | null>(); 
   constructor(private wineService: WineService, private userService: UserService, private route: ActivatedRoute, private router: Router){}
@@ -33,7 +35,14 @@ export class PostDetailsComponent implements OnInit{
   }
 
   public deletePost(id: string){
-    const parseId = parseInt(id)
-    this.wineService.deletePost(parseId).subscribe();
+    const parsedId = parseInt(id)
+    this.wineService.deletePost(parsedId).subscribe(()=>{
+      const updatedPosts = this.posts.filter(post=>parseInt(post.id) !== parsedId);
+      this.posts = updatedPosts; 
+      this.postDeleted.emit(parsedId)
+      console.log("POST SUCCESSFULLY DELETED! 💥")},
+      (error)=>{
+        console.log("ERROR DELETING POST! 🚩", error)
+      })
   }
 }
