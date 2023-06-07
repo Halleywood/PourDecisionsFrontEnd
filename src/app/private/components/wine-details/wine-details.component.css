@@ -115,6 +115,30 @@
     }
   }
   
+.post-container{
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  min-width:90%;
+  min-height:90%;
+}
+.post-card{
+  border:2px solid yellow;
+  min-width:100%;
+  display:flex;
+}
+.post-image{
+  flex:1;
+  min-height:200px;
+  min-width:200px; 
+  object-fit: cover;
+  border:2px solid red;
+}
+.content{
+  flex:3;
+}
   @media screen and (max-width: 768px) {
     .wine-card {
       padding: 10px;

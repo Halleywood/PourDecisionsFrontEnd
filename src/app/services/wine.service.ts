@@ -9,11 +9,13 @@ import {Observable } from 'rxjs'
 })
 export class WineService {
   currentWineForPost: string='';
+  data: any;
 
   constructor(private http: HttpClient) { }
 
   public getAllWines(): Observable<Wine[]> {
     return this.http.get<Wine[]>('http://localhost:8080/api/wines')
+  
   }
 
   public getAWine(id: number): Observable<Wine>{
