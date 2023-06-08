@@ -13,7 +13,10 @@ export class RegisterComponent implements OnInit{
   
  form: FormGroup = new FormGroup({
   email: new FormControl(null, [Validators.required, Validators.email]), 
-  password: new FormControl(null, [Validators.required, Validators.minLength(8)])
+  password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
+  // userName: new FormControl(null, [Validators.required]),
+  // tagLine: new FormControl(null, [Validators.required]),
+  // imgSrc: new FormControl(null, [Validators.required])
  })
   
   constructor(private service: UserService, private jwtService: JwtClientService, private router: Router){}
@@ -27,6 +30,15 @@ export class RegisterComponent implements OnInit{
   get password(): FormControl{
     return this.form.get('password') as FormControl;
   }
+  // get userName(): FormControl {
+  //   return this.form.get('userName') as FormControl;
+  // }
+  // get imgSrc(): FormControl {
+  //   return this.form.get('imgSrc') as FormControl;
+  // }
+  // get tagLine(): FormControl {
+  //   return this.form.get('tagLine') as FormControl;
+  // }
 
   registerUser(){
     this.jwtService.registerUser(this.form.value).subscribe( data=>{

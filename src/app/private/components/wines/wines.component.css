@@ -4,26 +4,41 @@
     align-items: center;
     justify-content: center;
     min-width:100vw;
-    
 }
-
 h1{
     text-align: left;
     width:55%;
 }
 .scroll{
-    display: flex;
+    max-height:400px; 
+    display: flex; 
     overflow-x: auto;
-    white-space: nowrap;
-    align-items: center;
-    justify-content: center;
-    /* max-width:1500px; */
+    max-width:1200px;
 }
+* {
+    scrollbar-width: none;
+    scrollbar-color: #9CAB00;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #9CAB00;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color:#008080;
+    border-radius: 4px;
+    border: 3px solid #008080;
+  }
+/* ********************************* */
 .wine-cards{
     display: inline-flex;
     gap: 20px;
     padding: 10px;
-  
 }
 .wine-box{
     flex-shrink: 0;
@@ -56,13 +71,7 @@ h1{
     font-weight: bolder;
     color: black;
 }
-.search-box{
-    display: flex;
-    align-items: center;
-    min-width:55%;
-    max-width:55%;
-    justify-content: space-between; 
-}
+
 form{
     display: flex;
     width:50%;
@@ -75,4 +84,51 @@ input{
 button{
     height:40px;
     width: 30%;
+}
+.scroll2{
+    min-height:420px;
+    max-height:420px; 
+    display: flex; 
+    overflow-x: auto;
+    min-width:1200px;
+    max-width:1200px;
+    position: relative;
+}
+.search-box{
+    display: flex;
+    align-items: center;
+    padding:0px 10px;
+    min-width:98%;
+    justify-content: space-between; 
+    position:absolute;
+    top:0px; 
+    right:0%;
+}
+.wine-cards2{
+    display: inline-flex;
+    gap: 20px;
+    padding: 10px;
+    position: absolute;
+    bottom:0;
+}
+.wine-box2{
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 220px; 
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    border:2px solid black;
+ 
+    &:hover{
+        background-color: rgb(5, 161, 161);
+        color: white;
+        border:3px solid #9CAB00;
+        & > img{
+            border: 4px solid #9CAB00;
+        }
+    }
+    
 }

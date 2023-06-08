@@ -18,7 +18,7 @@
 </div>
     </div>
 </div>
-
+<div class="scroll2">
     <div class="search-box">
         <h1>Search By Varietal</h1>
         <form class="d-flex" role="search"(ngSubmit)="onSubmit()">
@@ -26,21 +26,25 @@
             <button class="btn btn-outline-success" type="submit" >Search</button>
         </form>
     </div>
-    <div class="scroll">
-<div *ngIf="arrayOfWines">
-    <div class="wine-cards">
-        <div *ngFor="let wine of arrayOfWines">
-                <div class="wine-box">
-                    <img class="wine-img" src="{{wine.imgSrc}}">
-                    <div class="wine-content">
-                        <div class="wine-name"><a routerLink="/secure/wines/{{wine.id}}">{{wine.name}} </a></div>
-                        <div class="wine-vitner">{{wine.vitner}}</div>
-                        <div class="wine-vintage">{{wine.vintage}}</div>
+    <div *ngIf="arrayOfWines">
+        <div class="wine-cards2">
+            <div *ngFor="let wine of arrayOfWines">
+                    <div class="wine-box2">
+                        <img class="wine-img" src="{{wine.imgSrc}}">
+                        <div class="wine-content">
+                            <div class="wine-name"><a routerLink="/secure/wines/{{wine.id}}">{{wine.name}} </a></div>
+                            <div class="wine-vitner">{{wine.vitner}}</div>
+                            <div class="wine-vintage">{{wine.vintage}}</div>
+                        </div>
+                       
                     </div>
-                </div>
+            </div>
         </div>
+    </div>
     </div>
 </div>
 
-</div>
-</div>
+   
+
+
+

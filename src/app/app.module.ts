@@ -14,12 +14,13 @@ import { PostCreateComponent } from './private/components/post-create/post-creat
 import { WineDetailsComponent } from './private/components/wine-details/wine-details.component';
 import { PostDetailsComponent } from './private/components/post-details/post-details.component';
 import { WineService } from './services/wine.service';
+import { WelcomeComponent } from './private/components/welcome/welcome.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CommunityComponent,
-    PostCreateComponent, WineDetailsComponent, PostDetailsComponent
+    PostCreateComponent, WineDetailsComponent, PostDetailsComponent, WelcomeComponent
   ],
   imports: [
     BrowserModule, 

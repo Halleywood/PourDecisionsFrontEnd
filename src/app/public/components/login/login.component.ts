@@ -11,6 +11,7 @@ import {FormGroup, Validators, FormControl} from '@angular/forms'
 })
 export class LoginComponent {
 
+  errorMessage: string | null = null;
    
   form: FormGroup = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]), 
@@ -30,7 +31,10 @@ export class LoginComponent {
     //by subscribing to it...it wont do the if check until the login method is finished. This is where it sets the token to storage and will return TRUE for "isloggedin()"
     this.jwtService.login(this.form.value).subscribe(()=>{
       if(this.jwtService.isLoggedIn()){
-        this.router.navigate(['/secure'])
+        this.router.navigate(['/secure/welcome'])
+      }
+      else{
+        this.errorMessage = "Invalid email and/or password";
       }
     })
   }

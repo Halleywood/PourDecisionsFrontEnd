@@ -8,9 +8,11 @@
         </div>
         <div class="form-body">
             <form [formGroup]="form" (ngSubmit)="registerUser()">
+                <!-- <input placeholder="Username" type="text" id="userName" formControlName="userName"> -->
                 <input placeholder="Email" type="text" id="email" formControlName="email">
+                <!-- <input placeholder="Tagline" type="text" id="tagLine" formControlName="tagLine">
+                <input placeholder="Profile Picture" type="text" id="imgSrc" formControlName="imgSrc"> -->
                 <input placeholder="Password" type="password" id="password" formControlName="password">
-
                 <button type="submit" [disabled] = "form.invalid">Register</button>
             </form>
         </div>

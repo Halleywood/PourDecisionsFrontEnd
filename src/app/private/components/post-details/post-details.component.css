@@ -1,3 +1,6 @@
+  .post-details-display{
+    position:relative;
+  }
   .post-card{
     min-width:100%;
     max-width:100%;
@@ -12,13 +15,15 @@
     display: flex;
     align-items: center;
     border-radius:10px;
-    border:2px solid red;
   }
   h4{
     padding: 0; 
     margin: 0;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     text-align: right;
+    position: absolute;
+    bottom:15px;
+    right:0;
   }
   .post-image > img{
     min-height:85%;
@@ -41,4 +46,19 @@
     font-size:1.8rem;
     margin:2px; 
     padding: 2px;
+  }
+  .conditional-links{
+    width:10%;
+   
+  }
+  .conditional-links > button{
+    width:100px;
+    border-radius:10px; 
+    margin:10px;
+    border:2px solid teal; 
+    color:teal;
+    &:hover{
+      background-color: teal;
+      color: white;
+    }
   }

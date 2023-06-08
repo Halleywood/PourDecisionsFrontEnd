@@ -6,15 +6,15 @@ import { AuthGuard } from '../services/auth.guard';
 import { WineDetailsComponent } from './components/wine-details/wine-details.component';
 import { PostCreateComponent } from './components/post-create/post-create.component';
 import { PostDetailsComponent } from './components/post-details/post-details.component';
-import { Wine } from '../wine.model';
 import { WinesComponent } from './components/wines/wines.component';
 import { PostUpdateComponent } from './components/post-update/post-update.component';
-import { ProfileComponent } from './components/profile/profile.component';
-import { NavmenuComponent } from './components/navmenu/navmenu.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+
 
 const routes: Routes = [
     {path: '', component: HomepageComponent, canActivate: [AuthGuard], 
       children:[
+        {path: 'welcome', component: WelcomeComponent, canActivate: [AuthGuard]},
         {path: 'wines', component: WinesComponent, canActivate: [AuthGuard]}, 
         {path: 'wines/:id', component: WineDetailsComponent, canActivate: [AuthGuard]},
         {path: 'post', component: PostCreateComponent, canActivate:[AuthGuard]}, 

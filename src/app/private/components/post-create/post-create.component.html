@@ -1,3 +1,4 @@
+<h1>Write Your Tasting Notes</h1>
 <div class="post-create-container">
     <div class="form-container">
     <form [formGroup]="postForm" (ngSubmit)="createPost()">
@@ -11,7 +12,7 @@
     </div>
     <div class="input-group">
     <label for="tastingNotes">Tasting Notes:</label>
-    <input type="textarea" id="tastingNotes" formControlName="tastingNotes">
+    <input type="text" id="tastingNotes" formControlName="tastingNotes">
     </div>
     <div class="input-group">
     <label for="imgSrc">Img:</label>

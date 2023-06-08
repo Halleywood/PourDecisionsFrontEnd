@@ -9,9 +9,9 @@
         </div>
         <div class="form-body">
         <form [formGroup]="form" (ngSubmit)="loginUser()">
-            <input placeholder="Email" type="text" id="email" formControlName="email">
-            <input placeholder="Password" type="password" id="password" formControlName="password">
-        
+            <input placeholder="Email" type="text" id="email" formControlName="email" class="has-error">
+            <input placeholder="Password" type="password" id="password" formControlName="password" class="has-error">
+            <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
             <button type="submit" [disabled] = "form.invalid"> Login! </button>
         </form>
         </div>

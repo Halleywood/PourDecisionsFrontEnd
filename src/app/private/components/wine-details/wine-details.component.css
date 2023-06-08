@@ -101,6 +101,7 @@
     border-radius:10px;
     font-size:1rem;
     border: 2px solid teal;
+    color:teal;
     margin-bottom:20px;
     & a{
       text-decoration: none;
@@ -125,6 +126,7 @@
   flex-direction: column;
   min-width:90%;
   min-height:90%;
+  
 }
 .post-card{
   min-width:100%;
@@ -132,6 +134,7 @@
   margin:10px;
   padding:5px;
   border-bottom: 1px solid black;
+
 }
 
 .post-image{
@@ -145,6 +148,9 @@ h4{
   margin: 0;
   font-size: 1.4rem;
   text-align: right;
+  position: absolute; 
+  bottom:0;
+  left:0;
 }
 .post-image > img{
   min-height:85%;
@@ -186,3 +192,4 @@ p{
       font-size: 14px;
     }
   }
+

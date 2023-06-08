@@ -134,6 +134,12 @@ form > button{
     text-decoration: none;
     color: teal;
 }
+.error{
+    font-size: 2rem;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
 
 @media screen and (max-width:1200px) {
     .login-container{
