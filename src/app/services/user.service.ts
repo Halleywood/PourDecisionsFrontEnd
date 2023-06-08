@@ -6,11 +6,20 @@ import { Router } from '@angular/router';
 import { UserProfile } from '../userprofile.model';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+  private currentUserId: number | null =null;
+
+  public getCurrentUserId(){
+    return this.currentUserId;
+  }
+  public setCurrentUserId(id: number){
+    this.getCurrentUser().subscribe((response)=>{this.currentUserId = parseInt(response.id)})
+  }
 
   constructor(private http: HttpClient) { }
 

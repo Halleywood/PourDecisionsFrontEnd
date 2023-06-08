@@ -27,7 +27,6 @@ export class JwtClientService{
     return this.http.post("http://localhost:8080/auth/login", requestBody, {responseType: 'text' as 'json'})
     //pipe = streaming for response, map transforms response. 
     .pipe( map (response =>{
-      this.userService
       return this.validParseResponse(response)
     }))
   }

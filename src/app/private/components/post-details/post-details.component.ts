@@ -25,7 +25,8 @@ export class PostDetailsComponent implements OnInit{
       const parsedId = parseInt(this.postId)
       this.post$ = this.wineService.getPost(parsedId);
     }
-    this.getCurrentUserId();
+    this.getCurrentUserId()
+   
   }
   public getCurrentUserId(){
     const currentUser = this.userService.getCurrentUser()

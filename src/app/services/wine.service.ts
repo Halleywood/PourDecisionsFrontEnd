@@ -72,4 +72,8 @@ export class WineService {
     console.log("UPDATE METHOD")
     return this.http.put(`http://localhost:8080/api/posts/${id}`, post)
   }
+
+  public getAllUsersPosts(id: number){
+    return this.http.get<Post>(`http://localhost:8080/api/profile/${id}`)
+  }
 }
