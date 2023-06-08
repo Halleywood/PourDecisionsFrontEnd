@@ -3,6 +3,7 @@ import { UserService } from 'src/app/services/user.service';
 import {Observable } from 'rxjs'
 import { UserProfile } from 'src/app/userprofile.model';
 import { WineService } from 'src/app/services/wine.service';
+import { Post } from 'src/app/post.model';
 
 @Component({
   selector: 'app-profile',
@@ -10,22 +11,25 @@ import { WineService } from 'src/app/services/wine.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit{
-
+    
+  userPosts: Post[] = [];
    currentUser$: Observable<UserProfile | null> = new Observable<UserProfile | null>()
 
-    constructor(private userService: UserService, private wineService: WineService){}
+    constructor(private userService: UserService, private wineService: WineService){
+
+    }
+    
     ngOnInit(){
       this.currentUser$ =this.userService.getCurrentUser();
-   
       this.getAllPosts();
     }
 
     public getAllPosts(){
-        this.wineService.getAllUsersPosts(2).subscribe((response)=>{
-          console.log(response)
-        })
+        return this.wineService.getAllUsersPosts().subscribe((userPosts: Post[])=>{
+          this.userPosts = userPosts;
+        }, (error) =>{
+          console.log("Error fetching posts:", error)
+        });
     }
 
-//can you get all posts for every user? 
-//can you get every user?? 
 }

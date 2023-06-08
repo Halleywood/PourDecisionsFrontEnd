@@ -20,7 +20,6 @@ export class PostDetailsComponent implements OnInit{
   constructor(private wineService: WineService, private userService: UserService, private route: ActivatedRoute, private router: Router){}
 
   ngOnInit(): void{
-    // const postId = this.route.snapshot.paramMap.get('id') || this.route.snapshot.queryParamMap.get('id');
     if(this.postId){
       const parsedId = parseInt(this.postId)
       this.post$ = this.wineService.getPost(parsedId);

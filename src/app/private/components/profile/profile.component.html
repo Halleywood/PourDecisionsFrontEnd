@@ -6,7 +6,7 @@
     </div>
     <div class="profile-content">
         <p id="tag"> {{currentUser.userName}}</p>
-        <p>My Posts</p>
+        <a id="drop-down-post-link" routerLink="">My Posts</a>
         <p>My Faves</p>
         <p>Wish List</p>
         <div class="follow">
@@ -16,9 +16,20 @@
         <div class="follow">
             <p>FOLLOWING: </p>
             <p>{{currentUser.following.length + 125}}</p>
-        </div>
-    
-          
+        </div> 
     </div>
 </div>
+<div class="drop-down-posts" *ngIf="userPosts">
+    <h1> My Posts: </h1>
+    <div class="post-container">
+        <div *ngFor="let p of userPosts">
+            <p>{{p.title}}</p>
+            <p>{{p.rating}}</p>
+            <p>{{p.tastingNotes}}</p>
+            <p></p>
+        </div>
+    </div>
+ 
+
+</div> 
 </div>

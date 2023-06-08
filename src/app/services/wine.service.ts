@@ -73,7 +73,12 @@ export class WineService {
     return this.http.put(`http://localhost:8080/api/posts/${id}`, post)
   }
 
-  public getAllUsersPosts(id: number){
-    return this.http.get<Post>(`http://localhost:8080/api/profile/${id}`)
+  public getAllUsersPosts(){
+    return this.http.get<Post[]>(`http://localhost:8080/api/profile/posts`).pipe(
+      catchError((error) => {
+        console.log(error("UNABLE TO FETCH POSTS FOR USER", error));
+        return of([]);
+      })
+    );
   }
 }

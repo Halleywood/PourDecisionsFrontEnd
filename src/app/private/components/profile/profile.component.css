@@ -87,3 +87,18 @@ img{
     max-width: 100%;
     font-size:3rem;
 }
+#drop-down-post-link{
+    position: relative;
+
+}
+.drop-down-posts{
+    position: absolute; 
+    top:30%;
+    right:45%;
+    border: 4px hotpink solid;
+    background-color: white;
+    min-width:200px; 
+    max-width:400px; 
+    min-height:50%;
+}
+ 
