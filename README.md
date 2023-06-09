@@ -16,24 +16,27 @@ Ultimately, my API empowers wine enthusiasts with a seamless and secure platform
 * AuthGuard 
 
 ## Hurdles and Wins 
-* Implementing the security on the front end
+#### Implementing the security on the front end
   * This was both a win and a hurdle. There were a few times when I thought I should just scrap this goal in fear I would run out of time, but I was able to set up my Auth service utilizing AuthGuard for protected routes and a JWT Service for grabbing the JWT from the login response and handling it accordingly. I ended up using SessionStorage over LocalStorage to really ensure that the authentication and authorization was indeed happening and it wasn't a bug. 
 
-    * I did have a very hard time trying to parse the login response accordingly...at one point I had made a very complicated custom Regex method to splicing the JWT "string". 
-    * And then further into the project I learned about JSON.parse() and I was able to extract the JWT in two lines of code. 👿
+* I did have a very hard time trying to parse the login response accordingly...at one point I had made a very complicated custom Regex method to splicing the JWT "string". 
+* And then further into the project I learned about JSON.parse() and I was able to extract the JWT in two lines of code. 👿
 ![customJWTmethod](https://github.com/Halleywood/PourDecisionsFrontEnd/assets/87944545/bee25a64-2790-432f-9256-ed4bfbcfba88)
+#### Interceptors
     * Here's a win! 
 ![interceptorScreenShot](https://github.com/Halleywood/PourDecisionsFrontEnd/assets/87944545/9b1a258e-bcbc-42f0-8d97-ef034e89d501)
+#### Json Ignore 
  * Issues with JSON Ignore on the backend, not having my data constructed the way I would have liked on the front end. This really stressed to me the importance of creating a clickable prototype to get that user feedback from the beginnning. 
     ![error3](https://github.com/Halleywood/PourDecisionsFrontEnd/assets/87944545/d98894e7-0e4b-4b5f-8065-51c38b398767)
+####    Concurrency Issues
 * Concurrency Issues: When I was deleting a post, I wanted it to update the View in real time. But I ended up getting this concurrency error where I was deleting the post and then deleting the post again but it had already been deleted. 
 ![concurrencyIssuecode](https://github.com/Halleywood/PourDecisionsFrontEnd/assets/87944545/87d563f0-bbf7-45a2-b31c-380747682817)
 
-* Understanding Observables
+#### Understanding Observables
   * I initially struggled to comprehend the concept of Observables. It took me some time to grasp when to create an Observable and when to subscribe to it. I made the mistake of attempting to use the subscribe() method directly after an httpClient request, without realizing that it should be used within the Service component.
     Additionally, working with higher-level functions provided by Observables proved challenging. These operators offer great power but can also lead to confusion and headaches when not used correctly.
 ## General Approach
-
+*   General approach paragraph... 
 
 ## Resources 
 * Angular is a powerful, comprehensive framework that I knew we had only scratched the surface on. We had worked with Spring Security on the backend, and it was important that I try and implement security on the front end as well to full grasp the importance and the complexity of protecting user and resource data. I would like to thank the following sources for filling in more than just a few blanks and really showing me the power of Angular! 
