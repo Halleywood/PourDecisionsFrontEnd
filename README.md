@@ -27,7 +27,7 @@ Ultimately, my API empowers wine enthusiasts with a seamless and secure platform
 ![interceptorScreenShot](https://github.com/Halleywood/PourDecisionsFrontEnd/assets/87944545/9b1a258e-bcbc-42f0-8d97-ef034e89d501)
 #### Json Ignore 
  * Issues with JSON Ignore on the backend, not having my data constructed the way I would have liked on the front end. This really stressed to me the importance of creating a clickable prototype to get that user feedback from the beginnning. 
-    ![error3](https://github.com/Halleywood/PourDecisionsFrontEnd/assets/87944545/d98894e7-0e4b-4b5f-8065-51c38b398767)
+    ![error3](https://github.com/Halleywood/PourDecisionsFrontEnd/assets/87944545/6c501b30-1f3a-456d-9103-bb9a414f6246)
 ####    Concurrency Issues
 * Concurrency Issues: When I was deleting a post, I wanted it to update the View in real time. But I ended up getting this concurrency error where I was deleting the post and then deleting the post again but it had already been deleted. 
 ![concurrencyIssuecode](https://github.com/Halleywood/PourDecisionsFrontEnd/assets/87944545/87d563f0-bbf7-45a2-b31c-380747682817)
