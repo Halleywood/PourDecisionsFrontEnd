@@ -1,5 +1,5 @@
 ![WINELOGO!](https://github.com/Halleywood/PourDecisionsFrontEnd/assets/87944545/33b9d143-9bbc-49c1-bb5a-06dd59f6c301)
-# Embrace making pour decisions!
+
 This Angular frontend application creates a fully interactive interface for the [Java Restful API Backend](https://github.com/Halleywood/PourDecisionsBackEnd), and together they form an interactive wine tasting note application! The frontend leverages a security service to handle the user's JWT (JSON Web Token) for secure access to protected data resources. The AuthGuard ensures that all routes are accessible only to authenticated users.
 The user is then greeted by a homepage that displays their profile with custom picture, username, and quirky tagline. Because drinking wine doesn't have to be serious business. From the homepage a user can navigate to the wines section where they can see all wines in the database, or search by their favorite varietal. Clicking on a wine reveals comprehensive details, including user-generated reviews and opinions. It allows users to join the conversation, sharing their own thoughts and engaging with their friends' reviews. With a strong emphasis on user interaction and customization, the application offers a visually appealing and informative wine exploration experience.
 Ultimately, my API empowers wine enthusiasts with a seamless and secure platform to share their pour decisions, explore new wines, and connect with those with a grape passion for vino! Cheers to making pour decisions together!
@@ -14,6 +14,12 @@ Ultimately, my API empowers wine enthusiasts with a seamless and secure platform
 * Angular Router
 * HttpClient
 * AuthGuard 
+
+## General Approach
+*   Once i had set up the backend to retrieve and send data, I created this Angular application to fetch that data and display it for the end user. This application modularizes code into components that each perform a specific functionality like displaying data or transferring it between other components. 
+* In order to gain access to the private endpoints, I needed to manage the Json Web Token emmited by the Java API. Originally I wanted to learn about storing that token in an HttpCookie with a flag set to secure, but do to time constraints and the complex nature of creating an entire full stack application, I decided to store the JWT in SessionStorage. I opted for Session instead of Local so that it did not stay in the browser longer than it need to. 
+* Once the user provides their email and password and the the Java backend sends back the JWT, this Angular application stores that in SessionStorage and then I used an Interceptor to listen for and HTTP requests and it automatically generates the header for us. 
+* Upon successfull HTTP requests, this application receives the information and displays it dynamically for the user.  
 
 ## Hurdles and Wins 
 #### Implementing the security on the front end
@@ -35,8 +41,6 @@ Ultimately, my API empowers wine enthusiasts with a seamless and secure platform
 #### Understanding Observables
   * I initially struggled to comprehend the concept of Observables. It took me some time to grasp when to create an Observable and when to subscribe to it. I made the mistake of attempting to use the subscribe() method directly after an httpClient request, without realizing that it should be used within the Service component.
     Additionally, working with higher-level functions provided by Observables proved challenging. These operators offer great power but can also lead to confusion and headaches when not used correctly.
-## General Approach
-*   General approach paragraph... 
 
 ## Resources 
 * Angular is a powerful, comprehensive framework that I knew we had only scratched the surface on. We had worked with Spring Security on the backend, and it was important that I try and implement security on the front end as well to full grasp the importance and the complexity of protecting user and resource data. I would like to thank the following sources for filling in more than just a few blanks and really showing me the power of Angular! 
