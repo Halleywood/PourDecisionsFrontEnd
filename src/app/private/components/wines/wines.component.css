@@ -132,3 +132,180 @@ button{
     }
     
 }
+
+@media screen and (max-width:1000px) {
+    .entire-container{
+        max-width:980px;
+    }
+    .wine-cards{
+        display: flex;
+        flex-direction: column;
+    }
+    .scroll{
+        max-height:400px; 
+        display: flex; 
+        flex-direction: column;
+        overflow-x: none; 
+        overflow-y: auto;
+        margin-top:20px;
+
+    }
+    h1{
+        margin-top:120px;
+        width:100%;
+        text-align: center;
+
+    }
+    .scroll2{
+        max-height:400px; 
+        display: flex; 
+        flex-direction: column;
+        overflow-x: none; 
+        overflow-y: auto;
+        margin-top:20px;
+    }
+    .wine-cards2{
+        display: flex;
+        flex-direction: column;
+    }
+    .search-box{
+        display: flex; 
+        flex-direction: column; 
+        max-width:980px;
+    }
+    form{
+        max-width:990px;
+    }
+}
+@media screen and (max-width:400px) {
+    .entire-container{
+        max-width:380px;
+    }
+    .wine-cards{
+        display: flex;
+        flex-direction: column;
+    }
+    .scroll{
+        max-height:400px; 
+        display: flex; 
+        flex-direction: column;
+        overflow-x: none; 
+        overflow-y: auto;
+        margin-top:20px;
+
+    }
+    h1{
+        margin-top:120px;
+        width:100%;
+        text-align: center;
+
+    }
+    .scroll2{
+        max-height:400px; 
+        display: flex; 
+        flex-direction: column;
+        overflow-x: none; 
+        overflow-y: auto;
+        margin-top:20px;
+    }
+    .wine-cards2{
+        display: flex;
+        flex-direction: column;
+    }
+    .search-box{
+        display: flex; 
+        flex-direction: column; 
+        max-width:380px;
+    }
+    form{
+        max-width:350px;
+    }
+}
+@media screen and (max-width:600px) {
+    .entire-container{
+        max-width:580px;
+    }
+    .wine-cards{
+        display: flex;
+        flex-direction: column;
+    }
+    .scroll{
+        max-height:400px; 
+        display: flex; 
+        flex-direction: column;
+        overflow-x: none; 
+        overflow-y: auto;
+        margin-top:20px;
+
+    }
+    h1{
+        margin-top:120px;
+        width:100%;
+        text-align: center;
+
+    }
+    .scroll2{
+        max-height:400px; 
+        display: flex; 
+        flex-direction: column;
+        overflow-x: none; 
+        overflow-y: auto;
+        margin-top:20px;
+    }
+    .wine-cards2{
+        display: flex;
+        flex-direction: column;
+    }
+    .search-box{
+        display: flex; 
+        flex-direction: column; 
+        max-width:580px;
+    }
+    form{
+        max-width:550px;
+    }
+}
+@media screen and (max-width:400px) {
+    .entire-container{
+        max-width:380px;
+    }
+    .wine-cards{
+        display: flex;
+        flex-direction: column;
+    }
+    .scroll{
+        max-height:400px; 
+        display: flex; 
+        flex-direction: column;
+        overflow-x: none; 
+        overflow-y: auto;
+        margin-top:20px;
+
+    }
+    h1{
+        margin-top:120px;
+        width:100%;
+        text-align: center;
+
+    }
+    .scroll2{
+        max-height:400px; 
+        display: flex; 
+        flex-direction: column;
+        overflow-x: none; 
+        overflow-y: auto;
+        margin-top:20px;
+    }
+    .wine-cards2{
+        display: flex;
+        flex-direction: column;
+    }
+    .search-box{
+        display: flex; 
+        flex-direction: column; 
+        max-width:380px;
+    }
+    form{
+        max-width:350px;
+    }
+}

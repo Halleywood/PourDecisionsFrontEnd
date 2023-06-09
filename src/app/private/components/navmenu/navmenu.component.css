@@ -24,3 +24,26 @@
         align-self: center;
     }
 }
+@media screen and (max-width:1000px) {
+    .menu-container{
+      flex-direction: column;
+      max-width:1000px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .menu-container{
+        flex-direction: column;
+        max-width:600px;
+      }
+}
+@media screen and (max-width:400px) {
+    .menu-container{
+        flex-direction: column;
+        max-width:400px;
+        align-items: center;
+      }
+      .menu-item{
+        width:100%;
+      }
+}

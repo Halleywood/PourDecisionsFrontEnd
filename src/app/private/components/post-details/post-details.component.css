@@ -62,3 +62,21 @@
       color: white;
     }
   }
+
+  @media screen and (max-width:1050px) {
+    .post-card{
+      flex-direction: column;
+    }
+    .conditional-links{
+      flex-direction: row;
+      width:100%;
+    }
+    .post-image > img{
+      min-height:55%;
+      max-height:55%;
+      min-width:50%; 
+      max-width:50%;
+      object-fit: contain;
+      border-radius:10px;
+    }
+  }

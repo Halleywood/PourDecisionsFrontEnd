@@ -56,7 +56,7 @@
     display:flex;
     justify-content: space-between;
     align-items: center;
-    width:80%;
+    width:70%;
     color: white;
     font-size:1.8rem;
     margin: 10px 0;
@@ -83,9 +83,56 @@ img{
     border-radius: 10px;
     font-weight:bolder;
 }
+.logout-button{
+    align-items: center;
+    display: flex; 
+    height:40px;
+    border:2px solid white;
+    min-width:100px;
+    color: white; 
+    font-size:1rem;
+    margin-right:20px;
+    justify-content: space-around;
+    background-color: teal;
+    border-radius: 10px;
+    font-weight:bolder;
+}
 #tag{
     font-weight: bolder;
     max-width: 100%;
     font-size:3rem;
 }
 
+@media screen and (max-width:1050px) {
+    .profile-container{
+        max-width:1050px;
+    }
+    .profile-content{
+        width:90%;
+    }
+    .polaroid{
+        display: none;
+    }
+}
+@media screen and (max-width:600px) {
+    .profile-container{
+        max-width:600px;
+    }
+    .profile-content{
+        width:90%;
+    }
+    .polaroid{
+        display: none;
+    }
+}
+@media screen and (max-width:400px) {
+    .profile-container{
+        max-width:400px;
+    }
+    .profile-content{
+        width:90%;
+    }
+    .polaroid{
+        display: none;
+    }
+}

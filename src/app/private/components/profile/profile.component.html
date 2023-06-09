@@ -6,26 +6,11 @@
     </div>
     <div class="profile-content">
         <h3 id="tag"> {{currentUser.userName}}</h3>
-        <p>My Wish List</p>
-        <p>My Faves</p>
-        <div class="follow">
-        
+        <div>
+            <button class="logout-button" (click)="logOutUser()">Logout</button>
         </div>
-        <div class="follow">
-         
-        </div> 
     </div>
+
 </div>
-<!-- <div class="drop-down-posts" *ngIf="userPosts">
-    <h1> My Posts: </h1>
-    <div class="post-container">
-        <div *ngFor="let p of userPosts">
-            <p>{{p.title}}</p>
-            <p>{{p.rating}}</p>
-            <p>{{p.tastingNotes}}</p>
-            <p></p>
-        </div>
-    </div> -->
-<!-- 
-</div>  -->
+
 </div>

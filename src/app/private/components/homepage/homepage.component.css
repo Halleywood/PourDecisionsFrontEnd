@@ -33,5 +33,18 @@
 @media screen and (max-width:1000px) {
     .home-header{
         background-size: cover;
+        max-width:1000px;
+    }
+}
+@media screen and (max-width:600px) {
+    .home-header{
+        background-size: cover;
+        max-width:600px;
+    }
+}
+@media screen and (max-width:400px) {
+    .home-header{
+        background-size: cover;
+        max-width:400px;
     }
 }
