@@ -27,4 +27,7 @@ export class UserService {
     return this.http.get<UserProfile>('http://localhost:8080/api/get-user')
   }
 
+  public logout(){
+    return sessionStorage.setItem('token', '');
+  }
 }

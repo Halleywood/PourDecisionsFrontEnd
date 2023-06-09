@@ -1,0 +1,37 @@
+.posts-container{
+    display: grid; 
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 20px;
+}
+
+.post-card{
+    border: 2px solid black; 
+    padding:10px; 
+    border-radius:10px;
+    margin:3px;
+    font-size:2rem;
+    background-color: #DDDDDD;
+}
+button {
+    width:100px;
+    border-radius:10px; 
+    margin:10px;
+    border:2px solid teal; 
+    color:teal;
+    &:hover{
+      background-color: teal;
+      color: white;
+}
+}
+@media screen and (max-width:1000px) {
+    .posts-container{
+    margin-top:50px;
+    }
+}
+@media screen and (max-width:600px) {
+   
+}
+@media screen and (max-width:400px) {
+    
+}

@@ -1,0 +1,25 @@
+<div class="posts-container" *ngIf="userPosts">
+    <h1> Your Current Favorite:  </h1>
+    <div class="post-container">
+        <div class="post-card">
+            <p>Title: "{{topPosts[0].title}}"</p>
+            <p>Rating: {{topPosts[0].rating}}</p>
+            <p>Tasting Notes: {{topPosts[0].tastingNotes}}</p>
+            <button [routerLink]="'/secure/update/' + topPosts[0].id">Edit</button>
+            <button (click)="deletePost(topPosts[0].id)">Delete</button>
+        </div>
+    </div> 
+</div> 
+
+<div class="posts-container" *ngIf="userPosts">
+    <h1> All My Posts: </h1>
+    <div class="post-container">
+        <div *ngFor="let p of userPosts" class="post-card">
+            <p>Title: {{p.title}}</p>
+            <p>Rating: {{p.rating}}</p>
+            <p>Tasting Notes: {{p.tastingNotes}}</p>
+            <button [routerLink]="'/secure/update/' + p.id">Edit</button>
+            <button (click)="deletePost(p.id)">Delete</button>
+        </div>
+    </div> 
+</div> 

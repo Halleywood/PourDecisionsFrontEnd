@@ -9,12 +9,14 @@ import { PostDetailsComponent } from './components/post-details/post-details.com
 import { WinesComponent } from './components/wines/wines.component';
 import { PostUpdateComponent } from './components/post-update/post-update.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { ProfileDetailsComponent } from './components/profile-details/profile-details.component';
 
 
 const routes: Routes = [
     {path: '', component: HomepageComponent, canActivate: [AuthGuard], 
       children:[
         {path: 'welcome', component: WelcomeComponent, canActivate: [AuthGuard]},
+        {path: 'profile', component: ProfileDetailsComponent, canActivate: [AuthGuard]},
         {path: 'wines', component: WinesComponent, canActivate: [AuthGuard]}, 
         {path: 'wines/:id', component: WineDetailsComponent, canActivate: [AuthGuard]},
         {path: 'post', component: PostCreateComponent, canActivate:[AuthGuard]}, 

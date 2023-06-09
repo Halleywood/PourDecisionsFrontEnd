@@ -12,3 +12,20 @@
     overflow: none;
     font-family: 'Edu QLD Beginner', cursive;
 }
+@media screen and (max-width:1000px) {
+    .body-container{
+        max-width:950px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .body-container{
+        max-width:600px;
+    }
+}
+@media screen and (max-width:400px) {
+    .body-container{
+        max-width:400px;
+    }
+
+}
