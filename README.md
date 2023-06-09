@@ -24,6 +24,12 @@ When the user provides their email and password, the Java backend returns the JW
 
 With successful HTTP requests, the application dynamically presents the retrieved information to the user, ensuring an engaging and interactive experience
 
+* Clickable prototype:
+    * Getting a clickable prototype to ensure all data behaving as expected before styling!
+      ![CLICKABLElogin](https://github.com/Halleywood/PourDecisionsBackEnd/assets/87944545/910b4a6d-0d17-4fb6-998d-7aa3b0f6ed3e)
+      ![CLICKABLEhome](https://github.com/Halleywood/PourDecisionsBackEnd/assets/87944545/2d099bf9-f09c-4721-8bc9-89163c28e2f9)
+
+
 ## Hurdles and Wins 
 #### Implementing the security on the front end
   * This was both a win and a hurdle. There were a few times when I thought I should just scrap this goal in fear I would run out of time, but I was able to set up my Auth service utilizing AuthGuard for protected routes and a JWT Service for grabbing the JWT from the login response and handling it accordingly. I ended up using SessionStorage over LocalStorage to really ensure that the authentication and authorization was indeed happening and it wasn't a bug. 
