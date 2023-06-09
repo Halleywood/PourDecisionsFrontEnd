@@ -16,10 +16,13 @@ Ultimately, my API empowers wine enthusiasts with a seamless and secure platform
 * AuthGuard 
 
 ## General Approach
-*   Once i had set up the backend to retrieve and send data, I created this Angular application to fetch that data and display it for the end user. This application modularizes code into components that each perform a specific functionality like displaying data or transferring it between other components. 
-* In order to gain access to the private endpoints, I needed to manage the Json Web Token emmited by the Java API. Originally I wanted to learn about storing that token in an HttpCookie with a flag set to secure, but do to time constraints and the complex nature of creating an entire full stack application, I decided to store the JWT in SessionStorage. I opted for Session instead of Local so that it did not stay in the browser longer than it need to. 
-* Once the user provides their email and password and the the Java backend sends back the JWT, this Angular application stores that in SessionStorage and then I used an Interceptor to listen for and HTTP requests and it automatically generates the header for us. 
-* Upon successfull HTTP requests, this application receives the information and displays it dynamically for the user.  
+I built this Angular application to complement the backend and fetch data for the users. It's designed with modular components, each responsible for specific functionalities like displaying and transferring data between components.
+
+To access private endpoints, I needed to handle the JSON Web Token (JWT) emitted by the Java API. Initially, I planned to explore storing the token in an HTTP cookie with a secure flag. However, considering time constraints and the complexity of a full-stack application, I opted to store the JWT in SessionStorage. This choice ensures that the token doesn't persist in the browser longer than necessary.
+
+When the user provides their email and password, the Java backend returns the JWT, which the Angular application stores in SessionStorage. To simplify subsequent HTTP requests, I implemented an Interceptor that automatically generates the required headers.
+
+With successful HTTP requests, the application dynamically presents the retrieved information to the user, ensuring an engaging and interactive experience
 
 ## Hurdles and Wins 
 #### Implementing the security on the front end
