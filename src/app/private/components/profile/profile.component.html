@@ -5,21 +5,18 @@
         <p class="caption">{{currentUser.tagline}}</p>
     </div>
     <div class="profile-content">
-        <p id="tag"> {{currentUser.userName}}</p>
-        <a id="drop-down-post-link" routerLink="">My Posts</a>
+        <h3 id="tag"> {{currentUser.userName}}</h3>
+        <p>My Wish List</p>
         <p>My Faves</p>
-        <p>Wish List</p>
         <div class="follow">
-            <p>FOLLOWERS: </p>
-            <p> {{currentUser.followers.length + 100}}</p>
+        
         </div>
         <div class="follow">
-            <p>FOLLOWING: </p>
-            <p>{{currentUser.following.length + 125}}</p>
+         
         </div> 
     </div>
 </div>
-<div class="drop-down-posts" *ngIf="userPosts">
+<!-- <div class="drop-down-posts" *ngIf="userPosts">
     <h1> My Posts: </h1>
     <div class="post-container">
         <div *ngFor="let p of userPosts">
@@ -28,8 +25,7 @@
             <p>{{p.tastingNotes}}</p>
             <p></p>
         </div>
-    </div>
- 
-
-</div> 
+    </div> -->
+<!-- 
+</div>  -->
 </div>

@@ -7,8 +7,8 @@ import { NavmenuComponent } from './components/navmenu/navmenu.component';
 import { WinesComponent } from './components/wines/wines.component';
 import { PostUpdateComponent } from './components/post-update/post-update.component';
 import {FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { WineDetailsComponent } from './components/wine-details/wine-details.component';
 import { WineService } from '../services/wine.service';
+
 
 @NgModule({
   declarations: [
@@ -16,8 +16,8 @@ import { WineService } from '../services/wine.service';
     ProfileComponent,
     NavmenuComponent,
     WinesComponent,
-    PostUpdateComponent
- 
+    PostUpdateComponent,
+
   ],
   imports: [
     CommonModule, 
